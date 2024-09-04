@@ -1,1 +1,5 @@
-Note that while Finding out the Min and Max Value in Each case 
+Note that while Finding out the Min and Max Value in Each case we  Assumed that
+the first one to be the smaller or the largest of all numbers another apporach can be to use 
+min=Integer.MIN_VALUE(largest one and counting can be done )
+max=Integer.MAX_VALUE(lowest one and counting can be done serially)
+Ranges of integers (More to be covered while studying binary numbers )
