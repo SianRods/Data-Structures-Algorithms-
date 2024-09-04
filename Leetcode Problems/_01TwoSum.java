@@ -1,4 +1,4 @@
-public class TwoSum {
+public class _01TwoSum {
 	public static int[] returnSolution(int arr[], int target) {
 		int sol[] = new int[2] ;
 		int blank[] = new int[0];

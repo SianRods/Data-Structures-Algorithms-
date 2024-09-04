@@ -5,7 +5,7 @@
 // Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
 // Return k
 
-public class RemoveDuplicateSortedArrays {
+public class _02RemoveDuplicateSortedArrays {
 
 	public static void main(String args[]) {
 		int arr[] = { 1, 2, 2, 2, 3, 3, 4, 4, 5 };
