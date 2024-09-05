@@ -23,27 +23,21 @@
 
 // 1 <= nums.length <= 500
 // 1 <= nums[i] <= 105
+// ---------------------------------------------------------------------------------------------------------------------
+// Note that to count the length of the Number Different apporaches can be used 
+// 1] Count The digits 
+// 2] Convert the int to String and check the length of the string 
+// 3] If we consider Neagtive numbers num!=0 is a good case not num>0
+// 4] Possible also include condition for 0 which is 1 Digit number
 
-// SOLUTION --> 
-// METHOD 1 -->  NUMBER OF DIGITS IN A NUMBER ;
-//int num=122435432;
-// System.out.println(12/10);
-// int digit=0;
-// while(num!=0){
-//     num=num/10;
-//     digit++;
+// ------------------------------------------------------------------------------------------------------------------
 
-// }
-// System.out.println(digit);
-
-// METHOD 2 --> DIGIT%2==0 --> TRUE  -->  COUNT++
-
-// ITERATING THROUGH WHOLE ARRAY
-// for{for}
+// Approach-1 Part 1-->
+// The below solution beasts almost 25 percent of the solutions 
 
 public class _03NumbersWithEvenNumberDigits {
     public static void main(String args[]) {
-        int[] nums = { 555, 901, 482, 1771,34,3454,5465 };
+        int[] nums = { 555, 901, 482, 1771,34,3454,5465,-1234,00 };
         System.out.println(totalEvenDigitsNumber(nums));
     }
 
@@ -51,6 +45,7 @@ public class _03NumbersWithEvenNumberDigits {
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
             int digit = 0;
+            // if condition num>0 --> it would only work for postive numbers 
             while (arr[i] != 0) {
                 arr[i] = arr[i]/10;
                 digit++;
@@ -64,3 +59,4 @@ public class _03NumbersWithEvenNumberDigits {
     }
 
 }
+

@@ -3,3 +3,17 @@ the first one to be the smaller or the largest of all numbers another apporach c
 min=Integer.MIN_VALUE(largest one and counting can be done )
 max=Integer.MAX_VALUE(lowest one and counting can be done serially)
 Ranges of integers (More to be covered while studying binary numbers )
+Always make a note that for solving a problem set of tasks are too be executed it is always better 
+to assign them into functions(static ) and create every seperately 
+
+---------------------------------------------------------------------------------
+Why to not use static word while using leetcode for java
+When using LeetCode for Java, it’s generally recommended not to use static variables or methods for several reasons:
+
+Testability: Static variables and methods make it challenging to write unit tests for your code. In LeetCode, you’re often required to write testable code to verify your solutions. Static members can lead to tight coupling and make it harder to isolate dependencies.
+Reusability: Static variables and methods are tightly coupled to the class they’re defined in. This limits their reusability across different parts of your codebase. In Java, inheritance and polymorphism are more effective ways to reuse code.
+Multi-threading: Static variables can introduce issues with multi-threading, as they’re shared across all instances of the class. In a LeetCode problem, you might not need to worry about concurrency, but it’s still a good practice to avoid static variables to ensure your code is more robust.
+Code organization: Static variables and methods can clutter the namespace and make it harder to understand the code’s structure. In Java, encapsulation and abstraction are more effective ways to organize your code.
+Instead, consider using instance variables and methods to achieve the same goals. This will make your code more modular, reusable, and testable.
+
+Here’s an example of how you might refactor a LeetCode problem to avoid static variables:
