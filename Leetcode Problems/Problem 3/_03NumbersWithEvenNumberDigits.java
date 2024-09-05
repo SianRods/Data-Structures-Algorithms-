@@ -23,7 +23,7 @@
 
 // 1 <= nums.length <= 500
 // 1 <= nums[i] <= 105
-// ---------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------
 // Note that to count the length of the Number Different apporaches can be used 
 // 1] Count The digits 
 // 2] Convert the int to String and check the length of the string 
