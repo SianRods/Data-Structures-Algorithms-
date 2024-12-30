@@ -1,8 +1,15 @@
+// edge condition --> 
+// Ceiling of a number --> Samllest Number >= given Number 
+// What if all the number are less than given number in the array and that number does not exists
+// Ex. target =14
+// {1,3,3,5,6,7} ??
+// return -1;
+
 
 public class CeilingNumberMyCode {
     public static void main(String args[]){
         int [] sample ={2,3,5,9,14,16,18};
-        System.out.println("The Ceiling of the Given Number is : "+ceilingNumber(sample, 7));
+        System.out.println("The Ceiling of the Given Number is : "+ceilingNumber(sample, 15));
     }
 
     static int ceilingNumber(int arr[] , int element){
@@ -10,6 +17,13 @@ public class CeilingNumberMyCode {
         int start = 0;
         int end = arr.length-1;
         int middle=(start+end)/2;
+
+
+        // Checking the validity of the given question (Assuming Ascending Number )
+        if(element>arr[arr.length-1]){
+            return -1;
+        }
+
 
         // Array is in Ascending order Assumed 
         // Rertuning the element if it is present in the array 
@@ -31,7 +45,7 @@ public class CeilingNumberMyCode {
             // {start,answer,end}
             // But when while loop is violated we know for sure that answer does not lie between
             // Start and  end and hence --> will lie outside of end
-            
+
         }while(!(start>end));
 
     // The moment the condition get's violated we know that start>end 

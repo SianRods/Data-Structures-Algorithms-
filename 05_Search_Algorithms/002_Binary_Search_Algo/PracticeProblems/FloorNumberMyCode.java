@@ -1,4 +1,13 @@
 
+// edge condition --> 
+// Floor of a number --> Greatest Number <= given Number 
+// What if all the number are greater than given number in the array and that number does not exists
+// Ex. target =14
+// {16,46,75,85} ??
+// return -1;
+
+
+
 public class FloorNumberMyCode {
     public static void main(String args[]){
         int [] sample ={2,3,5,9,14,16,18};
@@ -10,6 +19,11 @@ public class FloorNumberMyCode {
         int start = 0;
         int end = arr.length-1;
         int middle=(start+end)/2;
+
+        // Checking the validity of the given question (Assuming Ascending Number )
+        if(element<arr[arr.length-1]){
+            return -1;
+        }
 
         // Array is in Ascending order Assumed 
         // Rertuning the element if it is present in the array 
