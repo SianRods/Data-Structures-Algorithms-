@@ -1,5 +1,5 @@
 
-public class CeilingNumberMyCode {
+public class FloorNumberMyCode {
     public static void main(String args[]){
         int [] sample ={2,3,5,9,14,16,18};
         System.out.println("The Ceiling of the Given Number is : "+ceilingNumber(sample, 7));
@@ -27,20 +27,14 @@ public class CeilingNumberMyCode {
                 middle=(start+end)/2;
             }
 
-            // The whole point of using the while loop is to check whether the answer lies between 
-            // {start,answer,end}
-            // But when while loop is violated we know for sure that answer does not lie between
-            // Start and  end and hence --> will lie outside of end
+            
             
         }while(!(start>end));
 
-    // The moment the condition get's violated we know that start>end 
-    // the break condition will look soomething like this {end, answer,start}
-    // next greatest element is start pointer now 
-    // It is similar to returning end+1
-    // As when the While Loop Breaks start=end+1; 
 
 
-        return arr[start];
+        // Same Logical Appproach as Ceiling of a Number only here we will return end when the condition
+        // Is violated and not the start
+        return arr[end];
     }
 }
