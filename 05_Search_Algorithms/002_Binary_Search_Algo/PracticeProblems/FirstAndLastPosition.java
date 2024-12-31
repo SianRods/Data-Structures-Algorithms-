@@ -1,11 +1,12 @@
 public class FirstAndLastPosition {
     public static void main(String args[]) {
-        // Only static methods can invoke other static methods if we don't want to create seperate classes
+        // Only static methods can invoke other static methods if we don't want to
+        // create seperate classes
         // Nad want to implement same under single class
-        int arr[]={5,7,7,8,8,10};
-    //    target = 8
-        int [] solution = searchRange(arr, 8);
-        System.out.println("The First and End position of the target variable is : "+solution[0]+solution[1]);
+        int arr[] = { 2, 5, 5, 5, 7 };
+        // target = 8
+        int[] solution = searchRange(arr, 5);
+        System.out.println("The First and End position of the target variable is : " + solution[0] + solution[1]);
     }
 
     static int[] searchRange(int[] nums, int target) {
@@ -17,6 +18,10 @@ public class FirstAndLastPosition {
         int count = 0;
 
         // Given that the order is in Ascending Format
+        // 3 5 5 5 7
+        // middle element first occurrence at second position
+        // It's wrong to assume that the first occurence of the given target will be at
+        // 1st middle
 
         do {
             if (nums[middle] == target) {
@@ -29,7 +34,7 @@ public class FirstAndLastPosition {
                     count++;
                     start = middle + 1;
                     middle = (start + end) / 2;
-                    
+
                 }
             } else if (nums[middle] < target) {
                 start = middle + 1;
@@ -42,11 +47,9 @@ public class FirstAndLastPosition {
             }
         } while (!(start > end));
 
-        --solution[0];
-        solution[1]=solution[0]+count; 
+        solution[1] = solution[0] + count;
 
         return solution;
-        
 
     }
 }
