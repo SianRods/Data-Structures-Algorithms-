@@ -25,24 +25,22 @@ public class MountainArray {
     // return the minimum index if the element exists
     // return -1 if the element does not exists
 
-    static int getMinimumIndex(MountainArray mountainArr, int target) {
+    static int findInMountainArray(MountainArray mountainArr, int element) {
 
         int start = 0;
         int end = pivotIndexMountainArray(mountainArr);
         int middle = (start + end) / 2;
 
-        if (mountainArr.length > 1) {
+        if (mountainArr.length() > 1) {
 
             do {
 
                 if (element == mountainArr.get(middle)) {
                     return middle;
                 } else if (element > mountainArr.get(middle)) {
-                    // Searching in the Remaining Upper Half by shifting the start pointer
                     start = middle + 1;
                     middle = (start + end) / 2;
                 } else if (element < mountainArr.get(middle)) {
-                    // Searching in the Remaining Upper Half by shifting the start pointer
                     end = middle - 1;
                     middle = (start + end) / 2;
                 }
@@ -50,7 +48,7 @@ public class MountainArray {
             } while (!(start > end));
         } else {
             start = pivotIndexMountainArray(mountainArr);
-            end = mountainArr.length;
+            end = mountainArr.length() - 1;
             do {
 
                 if (element == mountainArr.get(middle)) {
@@ -74,7 +72,7 @@ public class MountainArray {
 
     static int pivotIndexMountainArray(MountainArray mountainArr) {
         int start = 0;
-        int end = mountainArr.length - 1;
+        int end = mountainArr.length() - 1;
         int middle = (start + end) / 2;
 
         do {
