@@ -6,7 +6,8 @@ import java.util.List;
 
 public class NumberDisappearedInArray {
     public static void main(String[] args) {
-        int arr[] = { 4, 3, 2, 7, 8, 2, 3, 1 };
+        // int arr[] = { 4, 3, 2, 7, 8, 2, 3, 1 };  --> [5,6]
+        int arr[] ={1,1};
         System.out.println(findDisappearedNumbers(arr));
     }
 
@@ -26,23 +27,25 @@ public class NumberDisappearedInArray {
                 int temp = arr[arr[i] - 1];
                 arr[arr[i] - 1] = arr[i];
                 arr[i] = temp;
+            }
             // } else if (arr[i] != i + 1 && arr[arr[i] - 1] == arr[i]) {
-            //     // For repititive elements occupying the remaining space
-            //     i++;
-            //     continue;
+            // // For repititive elements occupying the remaining space
+            // i++;
+            // continue;
 
             // }
-             else {
+
+            else {
                 i++;
+            }
+
+        }
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] != j + 1) {
+                solution.add(j+1);
             }
         }
 
-        for (int j = 0; j < arr.length; j++) {
-            if (arr[i] != i + 1) {
-                solution.add(i);
-            }
-        }
-     
         return solution;
     }
 }
