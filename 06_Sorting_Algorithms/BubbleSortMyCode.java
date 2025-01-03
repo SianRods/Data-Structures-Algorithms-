@@ -21,6 +21,8 @@ public class BubbleSortMyCode {
         for (int i = 0; i < arr.length; i++) {
             // Starting the jth looop from one pointer ahead of other loops
             for (int j = 1; j < arr.length - i; j++) {
+                // Here we are not considering the equality of the elements we are only taking greater than size
+                // this is done to maintain the stability 
                 if (arr[j - 1] > arr[j]) {
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
