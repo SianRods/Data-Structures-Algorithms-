@@ -6,6 +6,13 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "NumberDisappearedInArray",
+			"request": "launch",
+			"mainClass": "NumberDisappearedInArray",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
 			"name": "MissingNumber",
 			"request": "launch",
 			"mainClass": "MissingNumber",
