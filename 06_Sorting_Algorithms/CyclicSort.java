@@ -11,22 +11,25 @@ import java.util.Arrays;
 
 public class CyclicSort {
     public static void main(String args[]) {
-        int arr[] = { 5, 4, 3, 6, 2, 1 };
+        int arr[] = { 5, 4, 6, 2, 1 };
         cycleSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
     static void cycleSort(int arr[]) {
-        int i=0;
-        while(i<arr.length) {
+        int i = 0;
+        // if length =5 --> it goes from 0:4
+        while (i < arr.length) {
             if (arr[i] != i + 1) {
+                // Here we are placing the element which has been encountered in the ith
+                // position to it's right location
                 // Swapping the element is it has not been placed correctly
                 int temp = arr[arr[i] - 1];
                 arr[arr[i] - 1] = arr[i];
                 arr[i] = temp;
             } else {
                 // Moving to the next index if the element is placed correctly
-              i++;
+                i++;
 
             }
         }
@@ -34,15 +37,15 @@ public class CyclicSort {
     }
 
 }
-
-// My Initial self-code with wrong apporach :
-// for(int i=0;i<arr.length;i++){
-// if(arr[i]==i+1){
-// continue;
-// }else{
-// // Swapping w.r.t correct indices
-// int temp=arr[i];
-// arr[i]=i+1;
-// arr[temp-1]=temp;
+// Here we are only considering the range from (1,n)
+// In order to be able to consider from (0,N)
+// int i=0;
+// while(i<arr.length){
+// if(arr[i]!=i){
+// // Swapping the incorrect postions
+// // Here we
+// int temp =arr[arr[i]];
+// arr[arr[i]]=arr[i];
+// arr[i]=temp;
 // }
 // }

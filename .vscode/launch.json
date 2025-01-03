@@ -4,7 +4,13 @@
 	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
 	"version": "0.2.0",
 	"configurations": [
-		
+		{
+			"type": "java",
+			"name": "MissingNumber",
+			"request": "launch",
+			"mainClass": "MissingNumber",
+			"projectName": "dsa_7751c099"
+		},
 		{
 			"type": "java",
 			"name": "BinarySearchMyCode",
