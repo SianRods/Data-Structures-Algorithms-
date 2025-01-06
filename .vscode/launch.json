@@ -6,6 +6,13 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "MajorityElement",
+			"request": "launch",
+			"mainClass": "MajorityElement",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
 			"name": "PlusOneArray",
 			"request": "launch",
 			"mainClass": "PlusOneArray",

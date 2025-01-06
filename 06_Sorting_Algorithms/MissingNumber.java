@@ -8,7 +8,7 @@ public class MissingNumber {
     public static void main(String[] args) {
         // Example
         int arr[] = { 5, 4, 3, 1, 0, 6, 8, 7, 9 };
-        System.out.println(missingcycleSort(arr)); //Finding the missing element
+        System.out.println(missingcycleSort(arr)); // Finding the missing element
         // System.out.println(Arrays.toString(arr));
 
     }
@@ -26,13 +26,14 @@ public class MissingNumber {
                 i++;
             }
         }
-       
-        int j=0;
+
+        int j = 0;
         while (j < arr.length) {
             // Keep Checking for the first missing element
             if (arr[j] != j) {
-                // return the index which has been wrongly inserted evemn after sorting as that given element index
-                // will not be present in the array 
+                // return the index which has been wrongly inserted evemn after sorting as that
+                // given element index
+                // will not be present in the array
                 return j;
             } else {
                 j++;

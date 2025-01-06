@@ -6,8 +6,8 @@ import java.util.List;
 
 public class NumberDisappearedInArray {
     public static void main(String[] args) {
-        // int arr[] = { 4, 3, 2, 7, 8, 2, 3, 1 };  --> [5,6]
-        int arr[] ={1,1};
+        // int arr[] = { 4, 3, 2, 7, 8, 2, 3, 1 }; --> [5,6]
+        int arr[] = { 1, 1 };
         System.out.println(findDisappearedNumbers(arr));
     }
 
@@ -42,7 +42,7 @@ public class NumberDisappearedInArray {
         }
         for (int j = 0; j < arr.length; j++) {
             if (arr[j] != j + 1) {
-                solution.add(j+1);
+                solution.add(j + 1);
             }
         }
 
