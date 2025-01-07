@@ -6,6 +6,13 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "StringMatchArray",
+			"request": "launch",
+			"mainClass": "StringMatchArray",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
 			"name": "FibonacciSum",
 			"request": "launch",
 			"mainClass": "FibonacciSum",
