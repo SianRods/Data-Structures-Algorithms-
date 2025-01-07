@@ -6,6 +6,20 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "FibonacciSum",
+			"request": "launch",
+			"mainClass": "FibonacciSum",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
+			"name": "FibonacciNumberLimit",
+			"request": "launch",
+			"mainClass": "FibonacciNumberLimit",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
 			"name": "FunctionCalls",
 			"request": "launch",
 			"mainClass": "FunctionCalls",
