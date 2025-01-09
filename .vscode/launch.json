@@ -6,6 +6,34 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "LargestNumber",
+			"request": "launch",
+			"mainClass": "LargestNumber",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
+			"name": "moveZerosOptimized",
+			"request": "launch",
+			"mainClass": "moveZerosOptimized",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
+			"name": "MoveZerosOptimized",
+			"request": "launch",
+			"mainClass": "MoveZerosOptimized",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
+			"name": "MoveZeros",
+			"request": "launch",
+			"mainClass": "MoveZeros",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
 			"name": "StringMatchArray",
 			"request": "launch",
 			"mainClass": "StringMatchArray",
