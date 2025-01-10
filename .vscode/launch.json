@@ -6,6 +6,13 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "SingleNumberArray",
+			"request": "launch",
+			"mainClass": "SingleNumberArray",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
 			"name": "LargestNumber",
 			"request": "launch",
 			"mainClass": "LargestNumber",
