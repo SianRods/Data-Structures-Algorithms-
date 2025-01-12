@@ -6,6 +6,27 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "PowerOfN",
+			"request": "launch",
+			"mainClass": "PowerOfN",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
+			"name": "LengthOfTheLastWord",
+			"request": "launch",
+			"mainClass": "LengthOfTheLastWord",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
+			"name": "FirstOccurenceInString",
+			"request": "launch",
+			"mainClass": "FirstOccurenceInString",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
 			"name": "SingleNumberArray",
 			"request": "launch",
 			"mainClass": "SingleNumberArray",
