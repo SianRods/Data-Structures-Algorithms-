@@ -6,6 +6,20 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "IsPalindrome",
+			"request": "launch",
+			"mainClass": "IsPalindrome",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
+			"name": "SetMatirxZeros",
+			"request": "launch",
+			"mainClass": "SetMatirxZeros",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
 			"name": "PowerOfN",
 			"request": "launch",
 			"mainClass": "PowerOfN",
