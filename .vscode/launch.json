@@ -6,6 +6,27 @@
 	"configurations": [
 		{
 			"type": "java",
+			"name": "BitWiseOperator",
+			"request": "launch",
+			"mainClass": "BitWiseOperator",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
+			"name": "BitWiseXOR",
+			"request": "launch",
+			"mainClass": "BitWiseXOR",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
+			"name": "ContainerWithMostWater",
+			"request": "launch",
+			"mainClass": "ContainerWithMostWater",
+			"projectName": "dsa_7751c099"
+		},
+		{
+			"type": "java",
 			"name": "IsPalindrome",
 			"request": "launch",
 			"mainClass": "IsPalindrome",
