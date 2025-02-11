@@ -4,7 +4,7 @@
 
 public class ElementInsertion {
     public static void main(String[] args) {
-        linkedList ll = new linkedList();
+        MyLinkedList ll = new MyLinkedList();
         ll.addFirst(1);
         ll.addFirst(2);
         ll.addFirst(3);

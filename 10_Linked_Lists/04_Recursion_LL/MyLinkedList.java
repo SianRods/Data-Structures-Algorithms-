@@ -1,10 +1,10 @@
 
-public class linkedList {
+public class MyLinkedList {
     private Node head;
     private Node tail;
     private int size; // maintaining the size of the linked list
 
-    public linkedList() {
+    public MyLinkedList() {
         this.size = 0;
     }
 
@@ -36,10 +36,6 @@ public class linkedList {
         Node newNode = new Node(data);
         newNode.next = head;
         head = newNode;
-
-        if (tail == null) {
-            tail = head;
-        }
 
         size++;
     }
@@ -137,14 +133,30 @@ public class linkedList {
             temp = temp.next;
         }
         System.out.print("END");
+        System.out.println();
 
     }
 
-    public void recursionInsertion(int i, int j) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'recursionInsertion'");
+    // Recursion insertion in the LinkedList
+    // Creating a seprate function so that we can pass the head of the linkedList through it 
+    public void recursionInsertion(int index, int data) {
+        Node sol = insertNode(index, data, this.head);
+        System.out.println(sol.data + "has been inserted succesfully");
+        size++;
     }
 
-    // method to get the node // reference pointer towards a specified index node
+    private Node insertNode(int index, int data, Node node) {
 
+        if (index == 1) {
+            Node newNode = new Node(data);
+            newNode.next = node.next;
+            node.next = newNode;
+
+            return newNode;
+
+        }
+
+        return insertNode(index - 1, data, node.next);
+
+    }
 }

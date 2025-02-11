@@ -1,7 +1,7 @@
 
 public class checkLL {
     public static void main(String args[]) {
-        linkedList ll = new linkedList();
+        MyLinkedList ll = new MyLinkedList();
         ll.addFirst(21);
         ll.addFirst(212);
         ll.addFirst(42342);

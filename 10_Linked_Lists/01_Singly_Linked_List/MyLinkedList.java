@@ -1,10 +1,10 @@
 
-public class linkedList {
+public class MyLinkedList {
     private Node head;
     private Node tail;
     private int size; // maintaining the size of the linked list
 
-    public linkedList() {
+    public MyLinkedList() {
         this.size = 0;
     }
 
@@ -136,31 +136,10 @@ public class linkedList {
             System.out.print(temp.data + "-->");
             temp = temp.next;
         }
-        System.out.println("END");
-        System.out.println(this.head.data + " is head of the given linked list");
+        System.out.print("END");
 
     }
 
-    // implementing a recursive technique to insert new node in a singley linked
-    // list
-    public void recursionInsertion(int index, int data) {
-        Node sol = insertNode(index-1, data, this.head);
-        System.out.println(sol.data + "has been inserted succesfully");
-    }
 
-    private Node insertNode(int index, int data, Node node) {
-    
-        if (index == 0) {
-            Node newNode = new Node(data);
-            newNode.next = node.next;
-            node.next = newNode;
-
-            return newNode;
-
-        }
-
-        return insertNode(index-1, data, node.next);
-
-    }
 
 }
