@@ -1,10 +1,10 @@
 
-public class MyLinkedList {
+public class SolutionLinkedLists {
     private Node head;
     private Node tail;
     private int size; // maintaining the size of the linked list
 
-    public MyLinkedList() {
+    public SolutionLinkedLists() {
         this.size = 0;
     }
 
@@ -144,6 +144,116 @@ public class MyLinkedList {
         System.out.print("END");
         System.out.println();
 
+    }
+
+    // Recursion insertion in the LinkedList
+    // Creating a seprate function so that we can pass the head of the linkedList
+    // through it
+    public void recursionInsertion(int index, int data) {
+        Node sol = insertNode(index, data, this.head);
+        System.out.println(sol.data + "has been inserted succesfully");
+        size++;
+    }
+
+    private Node insertNode(int index, int data, Node node) {
+
+        if (index == 1) {
+            Node newNode = new Node(data);
+            newNode.next = node.next;
+            node.next = newNode;
+
+            return newNode;
+
+        }
+
+        return insertNode(index - 1, data, node.next);
+
+    }
+
+    // removingDuplicates from a sorted LinkedLists
+    // Questions --> removeDuplicates
+    // note that here at the end of the list we will directly update the
+    // temp.next==null
+    // hence we have to just run the loop till temp.next != null
+    // Note that we have to also consider the affect of changes in the main
+    // linkedList to the other parameters
+    // size variable changes
+
+    void removeDuplicates() {
+        Node temp = head;
+        while (temp.next != null) {
+            if (temp.data == temp.next.data) {
+                temp.next = temp.next.next;
+                size--;
+            } else {
+                temp = temp.next;
+            }
+        }
+        tail = temp;
+        tail.next = null;
+    }
+
+    // Merging Two Sorted Lists --> without creating a new Linked Empty List
+
+    // public void mergeLists(SolutionLinkedLists l2) {
+    // mergeSortedLists(this.head, l2.head);
+    // }
+
+    // private void mergeSortedLists(Node head1, Node head2) {
+    // Node temp1 = head1;
+    // Node temp2 = head2;
+    // // Handling the null pointer exception
+    // if(head1==null ){
+    // if(head2==null){
+    // return ;
+    // }
+    // return ;
+    // }
+
+    // while (temp1.next != null || temp2.next != null) {
+
+    // if (temp2.data >= temp1.data && temp2.data < temp1.next.data) {
+    // head2=temp2.next;
+    // temp2.next = temp1.next;
+    // temp1.next = temp2;
+    // temp2 = head2;
+    // } else {
+    // temp1 = temp1.next;
+    // }
+    // }
+
+    // }
+
+    // Merging List by creating a new Linked List and keep on adding the smaller
+    // elements to it
+
+    public SolutionLinkedLists mergeLists(SolutionLinkedLists l1, SolutionLinkedLists l2) {
+        Node temp1 = l1.head;
+        Node temp2 = l2.head;
+        SolutionLinkedLists sol = new SolutionLinkedLists();
+
+        while (temp1 != null && temp2 != null) {
+            if (temp1.data > temp2.data) {
+                sol.addLast(temp2.data);
+                temp2 = temp2.next;
+            } else {
+                sol.addLast(temp1.data);
+                temp1 = temp1.next;
+            }
+        }
+
+        // Adding the remaning Lists
+
+        while (temp1 != null) {
+            sol.addLast(temp1.data);
+            temp1 = temp1.next;
+        }
+        while (temp2 != null) {
+            sol.addLast(temp2.data);
+            temp2 = temp2.next;
+        }
+
+        return sol;
     }
 
 }

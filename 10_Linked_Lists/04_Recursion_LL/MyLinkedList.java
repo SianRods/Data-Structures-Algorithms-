@@ -8,6 +8,7 @@ public class MyLinkedList {
         this.size = 0;
     }
 
+
     // Initialising for the Node class --> A seperate Node
     private class Node {
         private int data;
@@ -37,6 +38,9 @@ public class MyLinkedList {
         newNode.next = head;
         head = newNode;
 
+        if (tail == null) {
+            tail = head;
+        }
         size++;
     }
 
@@ -48,6 +52,12 @@ public class MyLinkedList {
 
     // Adding Data Towards the end
     void addLast(int data) {
+        if (tail == null) {
+            // if tail is --> null means first element is being added
+            // in that case insert it at first position
+            addFirst(data);
+
+        }
         Node newNode = new Node(data);
         tail.next = newNode;
         tail = newNode;
@@ -138,7 +148,8 @@ public class MyLinkedList {
     }
 
     // Recursion insertion in the LinkedList
-    // Creating a seprate function so that we can pass the head of the linkedList through it 
+    // Creating a seprate function so that we can pass the head of the linkedList
+    // through it
     public void recursionInsertion(int index, int data) {
         Node sol = insertNode(index, data, this.head);
         System.out.println(sol.data + "has been inserted succesfully");
@@ -159,4 +170,28 @@ public class MyLinkedList {
         return insertNode(index - 1, data, node.next);
 
     }
+
+    // removingDuplicates from a sorted LinkedLists
+    // Questions --> removeDuplicates
+    // note that here at the end of the list we will directly update the
+    // temp.next==null
+    // hence we have to just run the loop till temp.next != null
+    // Note that we have to also consider the affect of changes in the main
+    // linkedList to the other parameters
+    // size variable changes
+
+    void removeDuplicates() {
+        Node temp = head;
+        while (temp.next != null) {
+            if (temp.data == temp.next.data) {
+                temp.next = temp.next.next;
+                size--;
+            } else {
+                temp = temp.next;
+            }
+        }
+        tail = temp;
+        tail.next = null;
+    }
+
 }
