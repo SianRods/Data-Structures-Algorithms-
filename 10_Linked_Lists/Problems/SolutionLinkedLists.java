@@ -295,14 +295,13 @@ public class SolutionLinkedLists {
 
     // FINDING THE LENGTH OF THE GIVEN CYCLE
 
-    int cyclicLength(SolutionLinkedLists l1) {
+    public int cyclicLength(SolutionLinkedLists l1) {
         if (head == null) {
             return -1;
         }
 
         Node slow = head;
         Node fast = head;
-
 
         while (fast != null && fast.next != null) {
 
@@ -311,8 +310,8 @@ public class SolutionLinkedLists {
 
             if (slow == fast) {
                 int i = 0;
-                // Now keep the fast pointer as it is and try to iterate over the cycle 
-                // using the slow pointer till ity reaches the fatser pointer again 
+                // Now keep the fast pointer as it is and try to iterate over the cycle
+                // using the slow pointer till ity reaches the fatser pointer again
                 do {
                     slow = slow.next;
                     i++;
@@ -324,5 +323,39 @@ public class SolutionLinkedLists {
 
         return -1;
     }
+
+    // Leetcode --> Starting Node of Cyclic Linked List 2
+    // Apporach --> First use the concept and logic of the two pointer method
+    // Work around the different ways to such that fast==slow where the node is the
+    // starting point
+
+    Node cycleStartNode(SolutionLinkedLists l1) {
+        int length = cyclicLength(l1);
+        if (length == -1) {
+            // No Cycle Exists
+            return null;
+        }
+
+        Node slow = l1.head;
+        Node fast = l1.head;
+
+        for (int i = 0; i < length; i++) {
+            slow = slow.next;
+        }
+
+        while (fast != slow) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        // Return any as they will meet at the same Point
+        return fast;
+
+    }
+
+
+
+    // LinkedLists --> Happy Number
+    // Make the sqaure of the numbers and add them to the next node and repeat the process till the cycle is formed 
+    
 
 }
