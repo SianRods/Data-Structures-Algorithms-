@@ -256,4 +256,73 @@ public class SolutionLinkedLists {
         return sol;
     }
 
+    // Cycle Detection in a Linked List
+    // Two Pointer --> fast and slow pointer
+    // Two Possibilities
+    // 1. We will get a Cycle
+    // 2. Or we will reach NULL pointer side
+    // if there is a race track it will happen that the faster pointer will cross
+    // the slower pointer
+    // at some point in time
+    // is it was a straight track the faster pointer would have reached the end
+    // FIRST
+    // time complexity is O(n) for fast to meet the slow pointer
+    boolean isCyclic(SolutionLinkedLists l1) {
+        if (head == null) {
+            return false;
+        }
+
+        // Start both the pointers from the head to avoid the NULL pointer Exception
+        Node slow = head;
+        Node fast = head;
+
+        // Also we need a Entry level Loop cause once we update the nodes and then check
+        // at exit the possibility of the
+        // that exception might have occured increseases
+
+        while (fast != null && fast.next != null) {
+
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if (slow == fast) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // FINDING THE LENGTH OF THE GIVEN CYCLE
+
+    int cyclicLength(SolutionLinkedLists l1) {
+        if (head == null) {
+            return -1;
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+
+        while (fast != null && fast.next != null) {
+
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if (slow == fast) {
+                int i = 0;
+                // Now keep the fast pointer as it is and try to iterate over the cycle 
+                // using the slow pointer till ity reaches the fatser pointer again 
+                do {
+                    slow = slow.next;
+                    i++;
+
+                } while (slow != fast);
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
 }
