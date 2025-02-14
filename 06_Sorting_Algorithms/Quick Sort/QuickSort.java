@@ -35,10 +35,10 @@ public class QuickSort {
         int j = end;
         int temp;
 
-        while (i < j) {
+        while (i <= j) {
             while ( i <= end && arr[i] <= pivot)
                 i++;
-            while ( j >= start && arr[j] >= pivot)
+            while ( j > start && arr[j] > pivot)
                 j--;
             if (i < j) {
                 // swapping the both the pointers after each check
