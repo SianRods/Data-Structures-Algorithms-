@@ -55,6 +55,7 @@ public class SolutionLinkedLists {
             // if tail is --> null means first element is being added
             // in that case insert it at first position
             addFirst(data);
+            return;
 
         }
         Node newNode = new Node(data);
@@ -383,6 +384,20 @@ public class SolutionLinkedLists {
             head = null;
         }
 
+    }
+
+    public int returnNumber(SolutionLinkedLists l1) {
+        Node temp = l1.head;
+        int num1 = 0;
+        int place = 1; // Start with the least significant place value (10^0)
+
+        while (temp != null) {
+            num1 += temp.data * place;
+            place *= 10; // Move to the next place value
+            temp = temp.next;
+        }
+
+        return num1;
     }
 
 }
