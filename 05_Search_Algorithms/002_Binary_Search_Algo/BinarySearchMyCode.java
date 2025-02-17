@@ -21,7 +21,7 @@ public class BinarySearchMyCode {
         // Note that here all these parameters are used to denote the indexing in the given array
         int start = 0;
         int end = arr.length - 1;
-        int middle = (start + end) / 2;
+        int middle = start + (end-start)/ 2; // --> Possible that the (start +end ) --> may exceed the Integer Limit
 
 
         // Ensuring that the length of the array is greater than 1

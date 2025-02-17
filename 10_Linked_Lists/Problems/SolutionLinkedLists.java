@@ -29,7 +29,7 @@ public class SolutionLinkedLists {
     // Method to get the current size of the linked list
     int getSize() {
         return size;
-    }
+            }
 
     // Adding Data to the start of the Linked List
     void addFirst(int data) {
@@ -222,7 +222,6 @@ public class SolutionLinkedLists {
     // temp1 = temp1.next;
     // }
     // }
-
     // }
 
     // Merging List by creating a new Linked List and keep on adding the smaller

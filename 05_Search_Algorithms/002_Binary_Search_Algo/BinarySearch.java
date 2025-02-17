@@ -2,6 +2,7 @@
 // descending order
 // We have to compare the starts and the last element cause both the simultaneous elements can be same/ equal
 // [4,4,4,13,134,4675,246436] 
+// Figure out the question being talked about 
 
 
 

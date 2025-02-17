@@ -20,7 +20,7 @@ public class PositionInInfiniteArray {
             middle = (start + end) / 2;
         } else if (element < arr[middle]) {
             end = middle - 1;
-            middle = (start + end) / 2;w
+            middle = (start + end) / 2;
             
         }
 
