@@ -1,8 +1,9 @@
 package com.kunal;
+
 // https://leetcode.com/problems/search-in-rotated-sorted-array/submissions/
 public class RBS {
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5,5,6};
+        int[] arr = { 1, 2, 3, 4, 5, 5, 6 };
         System.out.println(findPivotWithDuplicates(arr));
     }
 
@@ -12,7 +13,7 @@ public class RBS {
         // if you did not find a pivot, it means the array is not rotated
         if (pivot == -1) {
             // just do normal binary search
-            return binarySearch(nums, target, 0 , nums.length - 1);
+            return binarySearch(nums, target, 0, nums.length - 1);
         }
 
         // if pivot is found, you have found 2 asc sorted arrays
@@ -28,9 +29,10 @@ public class RBS {
     }
 
     static int binarySearch(int[] arr, int target, int start, int end) {
-        while(start <= end) {
+        while (start <= end) {
             // find the middle element
-//            int mid = (start + end) / 2; // might be possible that (start + end) exceeds the range of int in java
+            // int mid = (start + end) / 2; // might be possible that (start + end) exceeds
+            // the range of int in java
             int mid = start + (end - start) / 2;
 
             if (target < arr[mid]) {
@@ -54,9 +56,19 @@ public class RBS {
             // 4 cases over here
             if (mid < end && arr[mid] > arr[mid + 1]) {
                 return mid;
+                // Here we are also Incudling the condition for mid<end for the edge case where
+                // there are no pivots and
+                // the largest number is at the end
+                // Cause if the pivot==middle==endElement --> IndexOutOfBounds Exception as we
+                // are trying to acess mid+1
             }
             if (mid > start && arr[mid] < arr[mid - 1]) {
-                return mid-1;
+                // Here we are also Incudling the condition for mid>start for the edge case
+                // where there are no pivots and
+                // the only element being the start element
+                // Cause if the pivot==middle==startElement --> IndexOutOfBounds Exception as we
+                // are trying to acess mid-1
+                return mid - 1;
             }
             if (arr[mid] <= arr[start]) {
                 end = mid - 1;
@@ -74,10 +86,15 @@ public class RBS {
             int mid = start + (end - start) / 2;
             // 4 cases over here
             if (mid < end && arr[mid] > arr[mid + 1]) {
+                // Here we are also Incudling the condition for mid<end for the edge case where
+                // there are no pivots and
+                // the largest number is at the end
+                // Cause if the pivot==middle==endElement --> IndexOutOfBounds Exception as we
+                // are trying to acess mid+1
                 return mid;
             }
             if (mid > start && arr[mid] < arr[mid - 1]) {
-                return mid-1;
+                return mid - 1;
             }
 
             // if elements at middle, start, end are equal then just skip the duplicates
@@ -97,7 +114,7 @@ public class RBS {
                 end--;
             }
             // left side is sorted, so pivot should be in right
-            else if(arr[start] < arr[mid] || (arr[start] == arr[mid] && arr[mid] > arr[end])) {
+            else if (arr[start] < arr[mid] || (arr[start] == arr[mid] && arr[mid] > arr[end])) {
                 start = mid + 1;
             } else {
                 end = mid - 1;

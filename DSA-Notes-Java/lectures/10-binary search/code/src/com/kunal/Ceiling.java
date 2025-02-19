@@ -33,6 +33,7 @@ public class Ceiling {
                 return mid;
             }
         }
+        // When the Loop Exists start > end and hence return the start as it supposedly crossed the middle and is ahead by one  
         return start;
     }
 }
