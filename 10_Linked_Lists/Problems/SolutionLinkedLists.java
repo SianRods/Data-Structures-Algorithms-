@@ -1,17 +1,23 @@
+/* Notice that here I am making the Node class , head and tail protected 
+ *  as i want to access them while writing solution for the problems in different 
+ *  classes;
+ */ 
+
+
 
 public class SolutionLinkedLists {
-    private Node head;
-    private Node tail;
-    private int size; // maintaining the size of the linked list
+    protected Node head;
+    protected Node tail;
+    protected int size; // maintaining the size of the linked list
 
     public SolutionLinkedLists() {
         this.size = 0;
     }
 
     // Initialising for the Node class --> A seperate Node
-    private class Node {
-        private int data;
-        private Node next;
+    protected class Node {
+        protected int data;
+        protected Node next;
 
         // To only initialise an Node wihtout no pointer towards the next one
         public Node(int data) {
