@@ -15,6 +15,8 @@ public class InbuiltStacks {
         stack.add(2323);
         stack.add(213);
 
+        stack.
+
         System.out.println(stack.isEmpty());
         System.out.println(stack.lastIndexOf(213)); // Returns First Based Position from the Top of the Stack
         System.out.println(stack.peek());
