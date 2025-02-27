@@ -1,5 +1,8 @@
 {
     "editor.fontFamily": "Fira code",
     "files.autoSave": "afterDelay",
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.debug.settings.onBuildFailureProceed": true,
+    "files.associations": {
+        "QUICKSOR.C": "cpp"
+    }
 }

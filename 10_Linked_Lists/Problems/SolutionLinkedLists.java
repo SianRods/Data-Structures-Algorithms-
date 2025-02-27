@@ -1,9 +1,7 @@
 /* Notice that here I am making the Node class , head and tail protected 
  *  as i want to access them while writing solution for the problems in different 
  *  classes;
- */ 
-
-
+ */
 
 public class SolutionLinkedLists {
     protected Node head;
@@ -12,6 +10,11 @@ public class SolutionLinkedLists {
 
     public SolutionLinkedLists() {
         this.size = 0;
+    }
+
+    // CHECKING IF THE LINKED LISTS IS EMPTY OR NOT
+    public boolean isEmpty() {
+        return head == null;
     }
 
     // Initialising for the Node class --> A seperate Node
@@ -35,7 +38,7 @@ public class SolutionLinkedLists {
     // Method to get the current size of the linked list
     int getSize() {
         return size;
-            }
+    }
 
     // Adding Data to the start of the Linked List
     void addFirst(int data) {
@@ -403,6 +406,36 @@ public class SolutionLinkedLists {
         }
 
         return num1;
+    }
+
+    // SWAPPING NODES OF A LINKED LISTS
+    public Node swapNodes(int k) {
+        Node temp = head;
+        Node temp2 = head;
+        int size = 1;
+        if (head == null) {
+            return head;
+        }
+        while (temp.next != null) {
+            temp = temp.next;
+            size++;
+        }
+        int valTemp;
+        temp = head;
+        for (int i = 1; i < k; i++) {
+            temp = temp.next;
+        }
+        for (int i = 1; i < size - k + 1; i++) {
+            temp2 = temp2.next;
+        }
+
+        // SWAPPING THE --> NODES
+        valTemp = temp.data;
+        temp.data = temp2.data;
+        temp2.data = valTemp;
+
+        return head;
+
     }
 
 }
