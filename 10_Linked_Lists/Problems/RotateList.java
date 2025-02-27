@@ -40,15 +40,7 @@ public class RotateList {
         return solHead;
     }
 
-
-
-
-
-
-
     // BELOW APPROACH WAS MY INTITAL NORMAL UNECESASRY APPPORACH --> 
-
-
     // Solution using the Linear Singly List Operations -->
     // static ListNode rotateList(ListNode ;head, int k) {
     // // Shift the head and the tail position

@@ -8,7 +8,7 @@ public class FibonacciSum {
 
     static int sumTillFibonacci(int term){
         if(term<3){
-            return sumTillFibonacci(term-1)+
+            return sumTillFibonacci(term-1);
         }
     }
     
