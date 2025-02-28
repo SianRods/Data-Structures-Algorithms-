@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-struct Node *head;
+struct Node *head = NULL;
 
 struct Node
 {

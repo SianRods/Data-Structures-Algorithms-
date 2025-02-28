@@ -4,5 +4,6 @@
     "java.debug.settings.onBuildFailureProceed": true,
     "files.associations": {
         "QUICKSOR.C": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
