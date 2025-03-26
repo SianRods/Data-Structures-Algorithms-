@@ -1,0 +1,20 @@
+if(num==0)--> return 0;
+else {
+	sum+=num/10; --> This Step Becomes Quite Unnecessary while using Recursion 
+	return sum+sumOfNumbers(num/10);
+}
+----------------------------
+We can use log to find the number of digits in a given number 
+-----------------------------
+variables which are passed to functions calls in the recursion are available throughout all the calls . whereas the variables which are only 
+defined inside of a function and are not passed to different functions remain available for that specific function call
+-----------------------------
+n--   --> it is the post decrement of variable 'n' meaning first use the variable n and then decrement it ;
+--n --> decrement the variable first and then use it 
+-----------------------------
+Palindrome --> 1.Reversing the Enitre Number 
+			   2.Without Reversing {Only POSSIBLE if the number is given in string or array format }
+-------------------------------
+Counting the Number of Zeros in a Number 
+1. Taking the COunt Variable Inside the Function {here we will keep on passing the updated value of count to the post function call }
+2. Taking a Global Count Variable {Limited Scope}
