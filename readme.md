@@ -100,91 +100,96 @@
 
 -------------------------------------------------------------------------------------------------------
 
-# Search and Sorting Algorithms
+---
 
-## Search Algorithms
+# 🔍 Search and Sorting Algorithms  
 
-- [x] Linear
-- [x] Binary
-  - [x] Binary Search Algorithm
-  - [x] Ceiling of a Number in Binary Search (smallestNo ≥ target)
-  - [x] First and Last Position of a Duplicate Element in an Array
-  - [x] Floor of a target
-  - [x] Infinite Array
-  - [x] Mountain Array
-  - [x] Order Agnostic Binary Search
-  - [x] Rotated Binary Search
-  - [x] Rotation Count
-  - [x] Row Column Binary Search
-  - [x] Search in Mountain Array
-  - [x] Smallest Letter
-  - [x] Sorted Matrix
-  - [ ] Split Array
-- [ ] Quick Sort
+## 🔎 Search Algorithms  
 
-## Sorting Algorithms
+- ✅ Linear  
+- ✅ Binary  
+  - ✅ Binary Search Algorithm  
+  - ✅ Ceiling of a Number in Binary Search (smallestNo ≥ target)  
+  - ✅ First and Last Position of a Duplicate Element in an Array  
+  - ✅ Floor of a target  
+  - ✅ Infinite Array  
+  - ✅ Mountain Array  
+  - ✅ Order Agnostic Binary Search  
+  - ✅ Rotated Binary Search  
+  - ✅ Rotation Count  
+  - ✅ Row Column Binary Search  
+  - ✅ Search in Mountain Array  
+  - ✅ Smallest Letter  
+  - ✅ Sorted Matrix  
+  - ❌ Split Array  
+- ❌ Quick Sort  
 
-- [ ] Bubble
-- [ ] Cyclic
-- [ ] Insertion
-- [ ] Quick
-- [ ] Selection
+## 🔢 Sorting Algorithms  
 
-## Linked Lists
+- ❌ Bubble  
+- ❌ Cyclic  
+- ❌ Insertion  
+- ❌ Quick  
+- ❌ Selection  
 
-- [ ] Singly
-- [ ] Doubly
-- [ ] Recursion
-- [ ] Circular
-- [ ] Problems In the Video
-  - [ ] Recursive Insertion in the Linked Lists
-  - [ ] Remove Duplicates from Sorted Linked Lists
-  - [ ] Merge Two Sorted Linked Lists
-  - [ ] Linked List Cycle
-  - [ ] Length of Linked List Cycle
-  - [ ] Linked List Cycle - 2
-  - [ ] Happy Number (Google)
-  - [ ] Middle of the Linked List
-  - [ ] Sort Linked List (BUBBLE AND MERGE SORT)
-  - [ ] Reverse Linked List (ITERATIVE)
-  - [ ] Reverse Linked List Iterative
-  - [ ] Reverse Linked List -2
-  - [ ] Palindrome Linked List
-  - [ ] Reorder Linked List
-  - [ ] Reverse K-Nodes in Linked List
-  - [ ] Reverse Alternate K-Nodes in Linked List
-  - [ ] Rotate Linked List
-  - [ ] Reversing the Linked List
-  - [ ] Middle of the Linked List using Hare and Tortoise algorithm
-  - [ ] Palindrome of Linked List (Using Half Approach)
+## 🔗 Linked Lists  
 
-## Stacks
+- ❌ Singly  
+- ❌ Doubly  
+- ❌ Recursion  
+- ❌ Circular  
+- ❌ Problems In the Video  
+  - ❌ Recursive Insertion in the Linked Lists  
+  - ❌ Remove Duplicates from Sorted Linked Lists  
+  - ❌ Merge Two Sorted Linked Lists  
+  - ❌ Linked List Cycle  
+  - ❌ Length of Linked List Cycle  
+  - ❌ Linked List Cycle - 2  
+  - ❌ Happy Number (Google)  
+  - ❌ Middle of the Linked List  
+  - ❌ Sort Linked List (Bubble & Merge Sort)  
+  - ❌ Reverse Linked List (Iterative)  
+  - ❌ Reverse Linked List Iterative  
+  - ❌ Reverse Linked List -2  
+  - ❌ Palindrome Linked List  
+  - ❌ Reorder Linked List  
+  - ❌ Reverse K-Nodes in Linked List  
+  - ❌ Reverse Alternate K-Nodes in Linked List  
+  - ❌ Rotate Linked List  
+  - ❌ Reversing the Linked List  
+  - ❌ Middle of the Linked List using Hare and Tortoise algorithm  
+  - ❌ Palindrome of Linked List (Using Half Approach)  
 
-[Problem Notes](https://www.notion.so/Problem-Notes-1a2989b8bb0680bf9b5bc5fcd33903dc?pvs=21)
+## 📚 Stacks  
 
-- [ ] Stacks
-- [ ] Stacks from Scratch
-- [ ] Stack as an Interface
-- [ ] Important Functions inside a Stack → `push()` `pop()` `peek()`
+[📌 Problem Notes](https://www.notion.so/Problem-Notes-1a2989b8bb0680bf9b5bc5fcd33903dc?pvs=21)  
 
-## Queues
+- ❌ Stacks  
+- ❌ Stacks from Scratch  
+- ❌ Stack as an Interface  
+- ❌ Important Functions inside a Stack → `push()` `pop()` `peek()`  
 
-- [ ] Queues from Scratch
-- [ ] Using Linked List
-- [ ] Using Arrays
-- [ ] Circular Queues
-- [ ] Dynamic Circular Queue → Increasing Size if Full
-- [ ] Dynamic Arrays
+## 🚦 Queues  
 
-## Problems on Stacks and Queues
+- ❌ Queues from Scratch  
+- ❌ Using Linked List  
+- ❌ Using Arrays  
+- ❌ Circular Queues  
+- ❌ Dynamic Circular Queue → Increasing Size if Full  
+- ❌ Dynamic Arrays  
 
-## Recursion
+## 💡 Problems on Stacks and Queues  
 
-- [ ] **Basics of Recursion**
-  - [ ] Function Calls
-  - [ ] Types of Recursions
-  - [ ] Binary Search using Recursion
-  - [ ] Space Complexity in Recursion vs Iteration
-  - [ ] Stack Memory
-  - [ ] Base Conditions in Recursion
-- [ ] **Recursion Level 1 Questions**
+## 🔄 Recursion  
+
+- ❌ **Basics of Recursion**  
+  - ❌ Function Calls  
+  - ❌ Types of Recursions  
+  - ❌ Binary Search using Recursion  
+  - ❌ Space Complexity in Recursion vs Iteration  
+  - ❌ Stack Memory  
+  - ❌ Base Conditions in Recursion  
+- ❌ **Recursion Level 1 Questions**  
+
+---
+
