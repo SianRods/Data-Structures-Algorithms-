@@ -35,7 +35,7 @@ public class Search2DArray {
             }
         }
 
-        // If no index if found
+        // If no index is found
         return new int[] { -1, -1 };
     }
 

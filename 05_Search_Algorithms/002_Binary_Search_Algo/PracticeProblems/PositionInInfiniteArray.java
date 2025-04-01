@@ -1,32 +1,31 @@
 
 public class PositionInInfiniteArray {
     public static void main(String args[]) {
-        int arr[]={1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
-        System.out.println("The given element is at the following index in the array :"+elementIndex(arr, 10));
+        int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+        System.out.println("The given element is at the following index in the array :" + elementIndex(arr, 10));
 
     }
 
-    static int elementIndex(int arr[],int element) {
-        // Implementing binary search for the descending order to find the index of the element
-       int  start=indexBounds(arr, element)[0];
-       int end =indexBounds(arr, element)[1];
-       int middle =(start + end)/2;
-       do {
+    static int elementIndex(int arr[], int element) {
+        // Implementing binary search for the descending order to find the index of the
+        // element
+        int start = indexBounds(arr, element)[0];
+        int end = indexBounds(arr, element)[1];
+        int middle = (start + end) / 2;
+        do {
 
-        if (element == arr[middle]) {
-            return middle;
-        } else if (element > arr[middle]) {
-            start = middle + 1;
-            middle = (start + end) / 2;
-        } else if (element < arr[middle]) {
-            end = middle - 1;
-            middle = (start + end) / 2;
-            
-        }
+            if (element == arr[middle]) {
+                return middle;
+            } else if (element > arr[middle]) {
+                start = middle + 1;
+                middle = (start + end) / 2;
+            } else if (element < arr[middle]) {
+                end = middle - 1;
+                middle = (start + end) / 2;
 
-    } while (true);
+            }
 
-
+        } while (true);
     }
 
     static int[] indexBounds(int arr[], int element) {
@@ -48,7 +47,6 @@ public class PositionInInfiniteArray {
             i++;
         } while (true);
     }
-
 }
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Basic Approach

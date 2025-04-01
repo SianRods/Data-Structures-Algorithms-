@@ -4,9 +4,7 @@ import java.util.Arrays;
 // It is important to note that as this matrix is not purely sorted we won't be able to apply binary search here
 // and can only decrease the search space accordingly  
 
-
-
-
+// KEEP REDUCING THE SEARCH SPACE TILL THE DESIRED TARGET HAS BEEN FOUND
 
 public class RowColMatrixMyCode {
     public static void main(String args[]) {

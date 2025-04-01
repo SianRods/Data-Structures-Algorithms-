@@ -1,0 +1,58 @@
+-----------------------------------------------------
+Here the arr in each function call of isSorted(arr,index) is pointing towards the same array 
+object .
+Therfore whenver u change/modfy  array the modified array is passed for all the subsequent calls in the recursion
+------------------------------------------------------
+Linear Search Using recursion
+--> Similar to For loop just calling the funciton again and again 
+--> Incase of Multiple OCcurences we can store the indexes of those elements in an ArrayList and return the arraylist 
+at the end of the array to be searched on 
+------------------------------------------------------
+Linear Search for Multiple Occurences 
+
+#### METHOD 1
+
+// Concept of Variables Updation inside a function call 
+ex).   static ArrayList<Integer> multipleOccurences(int arr[], int index, int element) {
+        static ArrayList<Integer> solution = new ArrayList<>();
+        if (index == arr.length - 1) {
+            if (arr[index] == element) {
+                solution.add(index);
+                return solution;
+            }
+            return solution;
+        }
+        else{
+            if(arr[index]==element){
+                solution.add(index);
+            }
+            return multipleOccurences(arr, index+1, element);
+        }
+    }
+
+In the Above given function the variable 'solution' is created eaech time for a recurssive call and hence
+it points towards the latest index asnd overides previous values 
+//Hence for such problems we have to declare the variable outside of the function call
+
+
+#### METHOD 2 --> passing on of the arraylist inside  of the function calls wihtout taking any external reference
+
+--> Understanding of the Objects and References plays crucial role in case of recursion
+--> passsing the arraylist object inside the Function calll
+
+
+
+
+
+
+
+#### METHOD 3 Return the list but don't take it in the argument of the function
+--> It is very inefficient but understanding it's concept becomes very important 
+
+
+
+
+
+
+
+

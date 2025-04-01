@@ -2,7 +2,7 @@
  *  as i want to access them while writing solution for the problems in different 
  *  classes;
  */
-
+package PracticeProblems_intern;
 public class SolutionLinkedLists {
     protected Node head;
     protected Node tail;

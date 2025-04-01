@@ -33,8 +33,10 @@ public class QuickSort {
         int pivot = arr[start];
         int i = start + 1;
         int j = end;
-        int temp;
+        int temp; 
 
+        // The outer while loop ensures that all the elements to the left of the pivot are less than it and all 
+        // towards right are greater than it 
         while (i <= j) {
             while ( i <= end && arr[i] <= pivot)
                 i++;
