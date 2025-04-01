@@ -1,4 +1,4 @@
-package ArrayLTQuestions;
+// package ArrayLTQuestions;
 
 // The Concept is to Reverse Each row then swap it across the secodnary diagonal to obtain the 
 
@@ -22,9 +22,16 @@ class RotateImage {
         int NumOfRotations = 270;
 
         for (int i = 1; i <= 3; i++) {
-            reverseArrayRows(arr);
+            horizontalFlip(arr);(arr);
             swapAlongSecondaryDiagnol(arr);
         }
+
+        display(arr);
+
+
+        display(arr);
+
+        verticalFlip(arr);
 
         display(arr);
 
@@ -68,7 +75,14 @@ class RotateImage {
 
 
     static void verticalFlip(int arr[][]){
-        
+        int temp;
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr.length/2;j++){
+                temp=arr[j][i];
+                arr[j][i]=arr[arr.length-1-j][i];
+                arr[arr.length-1-j][i]=temp;
+            }
+        }
     }
 
     
