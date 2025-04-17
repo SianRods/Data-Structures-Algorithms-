@@ -14,7 +14,7 @@ class RotateImage {
         };
         display(arr);
 
-        reverseArrayRows(arr);
+        // reverseArrayRows(arr);
         swapAlongSecondaryDiagnol(arr);
 
         display(arr);

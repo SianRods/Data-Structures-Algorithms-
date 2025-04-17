@@ -1,7 +1,8 @@
 public class RotatedArray {
 
     public static void main(String[] args) {
-
+        int num[] = { 15, 12 };
+        System.out.println("The Pivot index is as follows : " + findPivotIndex(num));
     }
 
     static int rotatedArraySearchElement(int arr[], int target) {
@@ -25,7 +26,7 @@ public class RotatedArray {
                 end = middle - 1;
             } else if (arr[middle] < target) {
                 start = middle + 1;
-            } else if (arr[middle] == target) { 
+            } else if (arr[middle] == target) {
                 return middle;
             }
         }
