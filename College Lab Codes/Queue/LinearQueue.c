@@ -9,7 +9,7 @@ int rear = -1;
 
 // Function to check if queue is empty
 int isEmpty() {
-    return front == -1 || front > rear;
+    return front == -1 
 }
 
 // Function to check if queue is full
@@ -36,18 +36,19 @@ void enqueue(int value) {
 
 // Function to remove an element from the queue
 int dequeue() {
-    if (isEmpty()) {
+    if (isEmpty() && front>rear) {
         printf("Queue is empty! Cannot dequeue\n");
         return -1;
     }
 
     int value = queue[front];
     front++;
-
-    if (front > rear) {
-        // Reset queue if it's now empty
-        front = rear = -1;
-    }
+    
+    // It  totally Depdends on use case but generallt resetting of a Linear Queue() is not done 
+    // if (front > rear) {
+    //     // Reset queue if it's now empty
+    //     front = rear = -1;
+    // }
 
     printf("Dequeued: %d\n", value);
     return value;

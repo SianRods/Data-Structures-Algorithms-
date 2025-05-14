@@ -1,256 +1,148 @@
 #include <stdio.h>
 #include <conio.h>
-#include <stdlib.h>
 #include <stdbool.h>
+#include <stdlib.h>
+
+// Creating a Structure for the Node
+struct Node
+{
+    int val;
+    struct Node *next; //  Memory Location of the Next Node
+};
 
 struct Node *head = NULL;
+// Creating newNode by allcoation memory to it using malloc(sizeof(struct Node *))
+int size = 0;
 
-struct Node
+// Check the return type of the createNewNode properly
+struct Node *createNewNode(int val)
 {
-    int val;
-    struct Node *next;
-};
-
-// Creating a Function for allocating Memory to the new Node
-struct Node *createNode(int data)
-{
-
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
     if (newNode == NULL)
     {
-        printf("Memry Allocation Failed ");
         return NULL;
     }
 
-    // NOTE THAT IN C BY DEFAULT VALUE IS GARBAGE VALUE IN CASE OF JAVA IT IS NULL VALUE
-
-    newNode->val = data;
+    // Assigning the Value to the newNode created and the next of the create Node  to NULL
+    newNode->val = val;
     newNode->next = NULL;
     return newNode;
 }
 
-bool isEmpty()
+int insertAtStart(int val)
 {
-    // simple equality check of the head with NULL
-    return head == NULL;
+    struct Node *newNode = createNewNode(val);
+    if (head == NULL)
+    {
+        head = newNode;
+        size++;
+        return head->val;
+    }
+    newNode->next = head;
+    head = newNode;
+    size++;
+    // Return the value of newly inserted head
+    return head->val;
 }
 
-int insertAtStart(int data)
+int insertAtEnd(int val)
 {
-
-    struct Node *newNode = createNode(data);
-    if (isEmpty())
+    struct Node *newNode = createNewNode(val);
+    if (head == NULL)
     {
+        // if the list is empty insert at start
         head = newNode;
-        return newNode->val;
-    }
-    else
-    {
-        newNode->next = head;
-        head = newNode;
-        return newNode->val;
-    }
-    return -1;
-}
-
-int insertAtEnd(int data)
-{
-    struct Node *newNode = createNode(data);
-
-    // CHECKING IF THE LIST IS EMPTY
-    if (isEmpty())
-    {
-        head = newNode;
-        return newNode->val;
+        size++;
+        return head->val;
     }
 
+    // else traverse till the end
     struct Node *temp = head;
-
     while (temp->next != NULL)
     {
         temp = temp->next;
     }
 
+    // Insert at the last postion
     temp->next = newNode;
+    size++;
     return newNode->val;
 }
 
-int insertAfterSpecificValue(int val, int target)
+int insertAfterValue(int val, int target)
 {
-    struct Node * newNode = createNode(val);
+    struct Node *newNode = createNewNode(val);
 
-    if(isEmpty()){
+    if (head == NULL)
+    {
         insertAtStart(val);
-        return -1;
-    }   
-
-    struct Node * temp =head;
-
-    while(temp->val!=target){
-        temp=temp->next;
-    }
-
-    newNode->next=temp->next;
-    temp->next=newNode;
-    #include <stdio.h>
-#include <conio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-struct Node *head;
-
-struct Node
-{
-    int val;
-    struct Node *next;
-};
-
-// Creating a Function for allocating Memory to the new Node
-struct Node *createNode(int data)
-{
-
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    if (newNode == NULL)
-    {
-        printf("Memry Allocation Failed ");
-        return NULL;
-    }
-
-    // NOTE THAT IN C BY DEFAULT VALUE IS GARBAGE VALUE IN CASE OF JAVA IT IS NULL VALUE
-
-    newNode->val = data;
-    newNode->next = NULL;
-    return newNode;
-}
-
-bool isEmpty()
-{
-    // simple equality check of the head with NULL
-    return head == NULL;
-}
-
-int insertAtStart(int data)
-{
-
-    struct Node *newNode = createNode(data);
-    if (isEmpty())
-    {
-        head = newNode;
-        return newNode->val;
-    }
-    else
-    {
-        newNode->next = head;
-        head = newNode;
-        return newNode->val;
-    }
-    return -1;
-}
-
-int insertAtEnd(int data)
-{
-    struct Node *newNode = createNode(data);
-
-    // CHECKING IF THE LIST IS EMPTY
-    if (isEmpty())
-    {
-        head = newNode;
         return newNode->val;
     }
 
+    // traverse till the
     struct Node *temp = head;
-
-    while (temp->next != NULL)
+    while (temp->val != target && temp != NULL)
     {
         temp = temp->next;
-    }
-
-    temp->next = newNode;
-    return newNode->val;
-}
-
-int insertAfterSpecificValue(int val, int target)
-{
-    struct Node * newNode = createNode(val);
-
-    if(isEmpty()){
-        insertAtStart(val);
-        return -1;
-    }   
-
-    struct Node * temp =head;
-
-    while(temp->val!=target){
-        temp=temp->next;
-    }
-
-    newNode->next=temp->next;
-    temp->next=newNode;
-    
-    return newNode->val;
-}
-
-
-int insertBeforeSpecificValue(int val, int target)
-{
-    struct Node *newNode = createNode(val);
-
-    if (isEmpty())
-    {
-        printf("List is empty.\n");
-        return -1;
-    }
-
-    if (head->val == target)
-    {
-        newNode->next = head;
-        head = newNode;
-        return newNode->val;
-    }
-
-    struct Node *temp = head;
-    while (temp->next != NULL && temp->next->val != target)
-    {
-        temp = temp->next;
-    }
-
-    if (temp->next == NULL)
-    {
-        printf("Target value not found.\n");
-        return -1;
     }
 
     newNode->next = temp->next;
     temp->next = newNode;
+    size++;
     return newNode->val;
 }
 
-void deleteStartNode()
+int insertBeforeValue(int val, int target)
 {
-    if (isEmpty())
-    {
-        printf("List is empty.\n");
-        return;
-    }
+    struct Node *newNode = createNewNode(val);
 
+    if (head == NULL)
+    {
+        insertAtStart(val);
+        return newNode->val;
+    }
+    // HERE WE NEED SLOW AND FAST POINTERS
+
+    struct Node *t1 = NULL;
     struct Node *temp = head;
-    head = head->next;
-    free(temp);
+
+    while (temp->val != target && temp != NULL)
+    {
+        t1 = temp;
+        temp = temp->next;
+    }
+    newNode->next = t1->next;
+    t1->next = newNode;
+    size++;
+    return newNode->val;
 }
 
-void deleteEndNode()
+bool deleteAtStart()
 {
-    if (isEmpty())
+    if (size == 0)
     {
-        printf("List is empty.\n");
-        return;
+        return false;
     }
 
-    if (head->next == NULL)
+    else if (size == 1)
     {
         free(head);
-        head = NULL;
-        return;
+        size--;
+        return true;
+    }
+
+    // Shift head pointer ahead by one
+    head = head->next;
+    size--;
+    // Do we need to free the temp variable ??
+    return true;
+}
+
+int deleteAtEnd()
+{
+    if (size == 0)
+    {
+        return false;
     }
 
     struct Node *temp = head;
@@ -261,70 +153,84 @@ void deleteEndNode()
 
     free(temp->next);
     temp->next = NULL;
+    size--;
+    return true;
 }
 
-void deleteNodeBeforeValue(int target)
+bool deleteAfter(int target)
 {
-    if (isEmpty() || head->next == NULL)
+    if (size == 0)
     {
-        printf("List is empty or has only one node.\n");
-        return;
+        return false;
     }
 
-    if (head->next->val == target)
+    struct Node *fast = head;
+    struct Node *slow;
+    while (slow->val != target && fast->next != NULL)
     {
-        deleteStartNode();
-        return;
+        slow = fast;
+        fast = fast->next;
     }
 
-    struct Node *temp = head;
-    while (temp->next->next != NULL && temp->next->next->val != target)
-    {
-        temp = temp->next;
-    }
+    slow->next = fast->next;
+    size--;
+    free(fast);
 
-    if (temp->next->next == NULL)
-    {
-        printf("Target value not found.\n");
-        return;
-    }
-
-    struct Node *nodeToDelete = temp->next;
-    temp->next = temp->next->next;
-    free(nodeToDelete);
+    return true;
 }
 
-void deleteNodeAfterValue(int target)
+int deleteBefore(int target)
 {
-    if (isEmpty() || head->next == NULL)
+    if (size == 0)
     {
-        printf("List is empty or has only one node.\n");
-        return;
+        return false;
     }
 
-    struct Node *temp = head;
-    while (temp != NULL && temp->val != target)
+    struct Node *fast = head;
+    struct Node *slow;
+    while (fast->next != NULL && fast->next->val != target)
     {
-        temp = temp->next;
+        slow = fast;
+        fast = fast->next;
     }
 
-    if (temp == NULL || temp->next == NULL)
+    // fast points to the target variable data
+
+    slow->next = fast->next;
+    free(fast);
+    size--;
+    return true;
+}
+
+int deleteSpecificValue()
+{
+}
+
+// Program to reverse a linked list given it's head
+struct Node *reverseLinkedList(struct Node *head)
+{
+
+    struct Node *current = head;
+    struct Node *prev = NULL;
+    struct Node *next = NULL;
+
+    while (current != NULL)
     {
-        printf("Target value not found or no node after target.\n");
-        return;
+        next = current->next;
+        current->next = prev;
+        // Updating the prev to new Current
+        // At the end of the loop the prev Node will be the new head Node of the Linked List
+        // As it was updated to current before the loop breaks
+        prev = current;
+        current = next;
     }
 
-    struct Node *nodeToDelete = temp->next;
-    temp->next = temp->next->next;
-    free(nodeToDelete);
+    return prev;
 }
 
 void display()
 {
     struct Node *temp = head;
-
-    // HERE THE END CONDITION WILL BE WHEN TEMP == NULL AS IF WE SET TEMP->NEXT == NULL
-    // THEN THE LAST NODE WON'T BE PRINTED
     while (temp != NULL)
     {
         printf("%d -->", temp->val);
@@ -336,296 +242,25 @@ void display()
 
 int main()
 {
-    int choice, value, target;
 
-    while (1)
-    {
-        printf("\nMenu:\n");
-        printf("1. Insert at Start\n");
-        printf("2. Insert at End\n");
-        printf("3. Insert After Specific Value\n");
-        printf("4. Insert Before Specific Value\n");
-        printf("5. Delete Start Node\n");
-        printf("6. Delete End Node\n");
-        printf("7. Delete Node Before Specific Value\n");
-        printf("8. Delete Node After Specific Value\n");
-        printf("9. Display List\n");
-        printf("10. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
-        switch (choice)
-        {
-        case 1:
-            printf("Enter value to insert at start: ");
-            scanf("%d", &value);
-            insertAtStart(value);
-            break;
-        case 2:
-            printf("Enter value to insert at end: ");
-            scanf("%d", &value);
-            insertAtEnd(value);
-            break;
-        case 3:
-            printf("Enter value to insert: ");
-            scanf("%d", &value);
-            printf("Enter target value after which to insert: ");
-            scanf("%d", &target);
-            insertAfterSpecificValue(value, target);
-            break;
-        case 4:
-            printf("Enter value to insert: ");
-            scanf("%d", &value);
-            printf("Enter target value before which to insert: ");
-            scanf("%d", &target);
-            insertBeforeSpecificValue(value, target);
-            break;
-        case 5:
-            deleteStartNode();
-            break;
-        case 6:
-            deleteEndNode();
-            break;
-        case 7:
-            printf("Enter target value before which to delete: ");
-            scanf("%d", &target);
-            deleteNodeBeforeValue(target);
-            break;
-        case 8:
-            printf("Enter target value after which to delete: ");
-            scanf("%d", &target);
-            deleteNodeAfterValue(target);
-            break;
-        case 9:
-            display();
-            break;
-        case 10:
-            exit(0);
-        default:
-            printf("Invalid choice. Please try again.\n");
-        }
-    }
-
-    return 0;
-}
-    return newNode->val;
-}
-
-
-int insertBeforeSpecificValue(int val, int target)
-{
-    struct Node *newNode = createNode(val);
-
-    if (isEmpty())
-    {
-        printf("List is empty.\n");
-        return -1;
-    }
-
-    if (head->val == target)
-    {
-        newNode->next = head;
-        head = newNode;
-        return newNode->val;
-    }
-
-    struct Node *temp = head;
-    while (temp->next != NULL && temp->next->val != target)
-    {
-        temp = temp->next;
-    }
-
-    if (temp->next == NULL)
-    {
-        printf("Target value not found.\n");
-        return -1;
-    }
-
-    newNode->next = temp->next;
-    temp->next = newNode;
-    return newNode->val;
-}
-
-void deleteStartNode()
-{
-    if (isEmpty())
-    {
-        printf("List is empty.\n");
-        return;
-    }
-
-    struct Node *temp = head;
-    head = head->next;
-    free(temp);
-}
-
-void deleteEndNode()
-{
-    if (isEmpty())
-    {
-        printf("List is empty.\n");
-        return;
-    }
-
-    if (head->next == NULL)
-    {
-        free(head);
-        head = NULL;
-        return;
-    }
-
-    struct Node *temp = head;
-    while (temp->next->next != NULL)
-    {
-        temp = temp->next;
-    }
-
-    free(temp->next);
-    temp->next = NULL;
-}
-
-void deleteNodeBeforeValue(int target)
-{
-    if (isEmpty() || head->next == NULL)
-    {
-        printf("List is empty or has only one node.\n");
-        return;
-    }
-
-    if (head->next->val == target)
-    {
-        deleteStartNode();
-        return;
-    }
-
-    struct Node *temp = head;
-    while (temp->next->next != NULL && temp->next->next->val != target)
-    {
-        temp = temp->next;
-    }
-
-    if (temp->next->next == NULL)
-    {
-        printf("Target value not found.\n");
-        return;
-    }
-
-    struct Node *nodeToDelete = temp->next;
-    temp->next = temp->next->next;
-    free(nodeToDelete);
-}
-
-void deleteNodeAfterValue(int target)
-{
-    if (isEmpty() || head->next == NULL)
-    {
-        printf("List is empty or has only one node.\n");
-        return;
-    }
-
-    struct Node *temp = head;
-    while (temp != NULL && temp->val != target)
-    {
-        temp = temp->next;
-    }
-
-    if (temp == NULL || temp->next == NULL)
-    {
-        printf("Target value not found or no node after target.\n");
-        return;
-    }
-
-    struct Node *nodeToDelete = temp->next;
-    temp->next = temp->next->next;
-    free(nodeToDelete);
-}
-
-void display()
-{
-    struct Node *temp = head;
-
-    // HERE THE END CONDITION WILL BE WHEN TEMP == NULL AS IF WE SET TEMP->NEXT == NULL
-    // THEN THE LAST NODE WON'T BE PRINTED
-    while (temp != NULL)
-    {
-        printf("%d -->", temp->val);
-        temp = temp->next;
-    }
-    printf("END");
-    printf("\n");
-}
-
-int main()
-{
-    int choice, value, target;
-
-    while (1)
-    {
-        printf("\nMenu:\n");
-        printf("1. Insert at Start\n");
-        printf("2. Insert at End\n");
-        printf("3. Insert After Specific Value\n");
-        printf("4. Insert Before Specific Value\n");
-        printf("5. Delete Start Node\n");
-        printf("6. Delete End Node\n");
-        printf("7. Delete Node Before Specific Value\n");
-        printf("8. Delete Node After Specific Value\n");
-        printf("9. Display List\n");
-        printf("10. Exit\n");
-        printf("Enter your choice: ");
-        scanf("%d", &choice);
-
-        switch (choice)
-        {
-        case 1:
-            printf("Enter value to insert at start: ");
-            scanf("%d", &value);
-            insertAtStart(value);
-            break;
-        case 2:
-            printf("Enter value to insert at end: ");
-            scanf("%d", &value);
-            insertAtEnd(value);
-            break;
-        case 3:
-            printf("Enter value to insert: ");
-            scanf("%d", &value);
-            printf("Enter target value after which to insert: ");
-            scanf("%d", &target);
-            insertAfterSpecificValue(value, target);
-            break;
-        case 4:
-            printf("Enter value to insert: ");
-            scanf("%d", &value);
-            printf("Enter target value before which to insert: ");
-            scanf("%d", &target);
-            insertBeforeSpecificValue(value, target);
-            break;
-        case 5:
-            deleteStartNode();
-            break;
-        case 6:
-            deleteEndNode();
-            break;
-        case 7:
-            printf("Enter target value before which to delete: ");
-            scanf("%d", &target);
-            deleteNodeBeforeValue(target);
-            break;
-        case 8:
-            printf("Enter target value after which to delete: ");
-            scanf("%d", &target);
-            deleteNodeAfterValue(target);
-            break;
-        case 9:
-            display();
-            break;
-        case 10:
-            exit(0);
-        default:
-            printf("Invalid choice. Please try again.\n");
-        }
-    }
-
-    return 0;
+    // Testing all the Functions
+    insertAtStart(10);
+    insertAtStart(123);
+    insertAtStart(23);
+    display();
+    insertAtEnd(94);
+    display();
+    insertAfterValue(32, 123);
+    display();
+    insertBeforeValue(45, 10);
+    display();
+    deleteAtStart();
+    display();
+    deleteAtEnd();
+    display();
+    deleteAfter(32);
+    display();
+    deleteBefore(10);
+    display();
+    return 1;
 }

@@ -3,7 +3,8 @@
     "files.autoSave": "afterDelay",
     "java.debug.settings.onBuildFailureProceed": true,
     "files.associations": {
-        "QUICKSOR.C": "cpp"
+        "QUICKSOR.C": "cpp",
+        "stdbool.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
