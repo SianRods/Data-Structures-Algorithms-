@@ -4,7 +4,8 @@
     "java.debug.settings.onBuildFailureProceed": true,
     "files.associations": {
         "QUICKSOR.C": "cpp",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "SELECTIO.C": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
