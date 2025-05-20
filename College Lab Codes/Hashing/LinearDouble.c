@@ -65,7 +65,7 @@ void DoubleHashing(int *arr, int *data, int len, int size, int PRIME)
             // Storing the initial value of key as to Compare after probing We find any empty or not
             int startPoint = key;
             int j = 1;
-            while (arr[(value % size) + j * (PRIME - (value % PRIME))] != 0)
+            while (arr[(value % size) + j * (PRIME - (value % PRIME))%size] != 0)
             {
                 j++;
                 if ((value % size) + j * (PRIME - (value % PRIME)) == startPoint)

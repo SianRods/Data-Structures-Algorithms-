@@ -45,10 +45,11 @@ int dequeue() {
     front++;
     
     // It  totally Depdends on use case but generallt resetting of a Linear Queue() is not done 
-    // if (front > rear) {
-    //     // Reset queue if it's now empty
-    //     front = rear = -1;
-    // }
+    if (front > rear) {
+        // Reset queue if it's now empty
+        // front = rear = -1;
+        printf("Cannot Empty The Queue , Underflow Condition !");
+    }
 
     printf("Dequeued: %d\n", value);
     return value;
