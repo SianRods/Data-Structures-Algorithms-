@@ -36,7 +36,7 @@ public class reverseNumbers {
 
 
     // Checking if the number is palindrome or not ??
-
+    // By using the recurssive implementation of Reversing a Number
     static boolean isPalin(int num){
         return num==reverseNumberPart1(num);
     }

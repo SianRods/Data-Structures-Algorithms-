@@ -6,7 +6,8 @@ public class FibonacciNumberLimit {
     static int nthFibonacciNumber(int n) {
         // Here n is not a number instead it is the nth term in the series
         // For Fibnonacci Numbers
-        if (n < 3) {
+        if (n < 2) {
+
             return n;
         }
 
@@ -25,4 +26,5 @@ public class FibonacciNumberLimit {
 
 // It is v.v.v.v.imp to identify the order in which tree is called (order of
 // function executions left /right )
-// Use the debugger in order to understand the flow of function calls in recursion
+// Use the debugger in order to understand the flow of function calls in
+// recursion

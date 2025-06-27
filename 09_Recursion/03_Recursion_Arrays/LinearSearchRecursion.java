@@ -24,8 +24,12 @@ public class LinearSearchRecursion {
         }
     }
 
+    // Maaking a Global Function Variable that can be accessed by the method and updated for our reference
     static ArrayList<Integer> solution = new ArrayList<>();
 
+
+    // In this method our recurssive function is accessing and updating the same element which is our 
+    // Solution Arraylist 
     static ArrayList<Integer> multipleOccurences(int arr[], int index, int element) {
         if (index == arr.length ) {
           return solution;
@@ -40,7 +44,8 @@ public class LinearSearchRecursion {
 
 
 
-
+    // In this method we are actually passing a the element which will be updated for answers throughout all the calls 
+    // note that the same original object is being passed throughout all the calls
     static ArrayList<Integer> methodOne(int arr[], int index, int element, ArrayList<Integer> s1) {
         if (index == arr.length ) {
             return s1;
@@ -68,9 +73,9 @@ public class LinearSearchRecursion {
                 s1.add(index);
             }
              ArrayList<Integer> ans = methodTwoNoArgument(arr, index+1, element); // Note that the recursive call takes place over in this statement 
-            //  Depending upon what the 'ans' is returned from the above calls we will updates our exiting list and then pass the updated index values 
+            //  Depending upon what the 'ans' is returned from the above calls we will updates our existing list and then pass the updated index values 
             // to the above function calls 
-            // So every time we update the given list and the pass that list 
+            // So every time we update the given list and then pass that list 
                s1.addAll(ans);
                  return s1;
         }   
