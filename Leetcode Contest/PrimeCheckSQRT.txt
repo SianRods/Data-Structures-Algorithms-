@@ -1,0 +1,68 @@
+*****************************************************************
+Checking if a number is a prime number or not using divisiblity 
+boolean isPrime(int num){
+    if(num<2)return true;
+    else{
+        int i=(int )Math.sqrt(num);
+        while(i>1){
+            if(num%i==0)return false;
+        }
+
+        return true;
+    }
+}
+
+
+
+Because if n is divisible by any number greater than √n, then it
+ must also be divisible by some number smaller than √n.
+
+********************************************************************
+Factorization can prove the following stuff : 
+
+
+ ✅ Let's break it down with an example:
+Suppose n = 36.
+
+Now:
+
+√36 = 6
+
+All factor pairs of 36 are:
+
+(1, 36)
+
+(2, 18)
+
+(3, 12)
+
+(4, 9)
+
+(6, 6) ← square root
+
+(9, 4)
+
+(12, 3)
+
+(18, 2)
+
+(36, 1)
+
+So, every time you find a divisor > √n, it's paired with a divisor < √n
+Example:
+
+9 × 4 = 36 → 9 > √36, but 4 < √36
+
+18 × 2 = 36 → 18 > √36, but 2 < √36
+
+🧩 Conclusion:
+If a number n has any factor larger than √n, the other number in the factor pair must be smaller than √n.
+
+👉 Therefore:
+
+If no number up to √n divides n, then no number above √n will either.
+
+💡 Why It Makes Things Faster:
+Instead of checking all numbers from 2 to n-1, you're checking only from 2 to √n.
+
+This reduces time complexity from O(n) to O(√n).

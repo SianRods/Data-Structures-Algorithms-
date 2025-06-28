@@ -44,7 +44,7 @@ public class SkipSubString {
         if (s.startsWith(smallerSkip) && !s.startsWith(subPart)) {
             // Skip that subpart of the string
             // We are skipping the number of indices with the length of the string
-            return skipSubstringNotSuperString(s.substring(0 + smallerSkip.length() ), subPart, smallerSkip);
+            return skipSubstringNotSuperString(s.substring(0 + smallerSkip.length()), subPart, smallerSkip);
         } else {
             return s.charAt(0) + skipSubstringNotSuperString(s.substring(1), subPart, smallerSkip);
         }
