@@ -80,6 +80,7 @@ public class SubsetIntroduction {
         if (s.isEmpty()) {
             // At the base condition we will add the processed string to our answer list
             ArrayList<String> li = new ArrayList<>();
+            
             li.add(processed);
             return li;
 

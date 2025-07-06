@@ -25,6 +25,7 @@ public class PhoneNumberCombinationMade {
 
         int digit = digits.charAt(0) - '0';
         List<String> list = new ArrayList<>();
+        
         for (int i = (digit -2) * 3; i < (digit-1) * 3; i++) {
             char ch = (char) ('a' + i);
             list.addAll(letterCombinations(digits.substring(1), processed + ch));

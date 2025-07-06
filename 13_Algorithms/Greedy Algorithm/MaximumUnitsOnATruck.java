@@ -2,38 +2,29 @@ import java.util.Arrays;
 
 public class MaximumUnitsOnATruck {
     public static void main(String[] args) {
-
+        int boxTypes[][] = { { 1, 3 }, { 2, 2 }, { 3, 1 } };
+        int truckSize = 4;
+        System.out.println(maximumUnits(boxTypes, truckSize));
     }
 
-    public int maximumUnits(int[][] boxTypes, int truckSize) {
-        // Maximum => First instinct is to sort the array as we have to maximize the
-        // number of units given
-        // the number of box on the trucks constrain
-        // Sorting and Greediness comes to the mind first
-        // Sort the Array as per the total numberOfUnitsPerBox ;
-        // We can also choose to select only a limited number of boxes belonging to
-        // certain types
-        // But optimal Approach is to maximize output per selection of a single box
-        // First the number of units per box and then
-
-        Arrays.sort(boxTypes, new java.util.Comparator<int[]>() {
-            public int compare(int[] a, int[] b) {
-                return Integer.compare(a[1], b[1]); // a[1] = j1, b[1] = j2
-            }
-        });
+    public static int maximumUnits(int[][] boxTypes, int truckSize) {
+      
+        // Sorting the array in in descending order as per the number of units per boxes
+        Arrays.sort(boxTypes, (a, b) -> Integer.compare(b[1], a[1]));
 
         int numberOfUnits = 0;
-        int boxes = 0;
+        // int boxes = 0;
+
 
         for (int i = 0; i < boxTypes.length; i++) {
-            if (boxTypes[i][0] >= (truckSize - boxes)) {
-                numberOfUnits += boxTypes[i][1] * (oxTypes[i][0] - truckSize + boxes);
-                boxes += boxTypes[i][0] - truckSize;
+            if (boxTypes[i][0] >= truckSize) {
+                numberOfUnits += boxTypes[i][1] *  truckSize;
+                // boxes += boxTypes[i][0] - truckSize;
                 // break the loop after this point
                 break;
             } else {
-                numberOfUnits += boxTypes[i][1];
-                boxes += boxTypes[i][0] - truckSize;
+                numberOfUnits += boxTypes[i][1] * boxTypes[i][0];
+                truckSize -= boxTypes[i][0];
             }
         }
 

@@ -8,29 +8,20 @@ public class MaximizeTheSumOfTheArray {
 
     public static int largestSumAfterKNegations(int[] nums, int k) {
         Arrays.sort(nums);
-
-        if(nums[0]<0){
-            int i = 0;
-             while (k != 0 || ){
-
-             }
-        }
-        
-
-
         int i = 0;
         while (k != 0 && i < nums.length) {
-            if (nums[i] >= 0 || nums[i - 1] < 0 && nums[i] >= 0) {
-                nums[i] = nums[i] * (int) Math.pow(-1, k);
-                break;
-            } else if (nums[i] < 0) {
-                nums[i] = -1 * nums[i];
-                k--;
-                i++;
-            } else if (nums[i - 1] < 0 && nums[i] >= 0) {
-                nums[i - 1] = nums[i - 1] * (int) Math.pow(-1, k);
+            if (nums[i] < 0) {
+                nums[i] *= -1;
+                Arrays.sort(nums);
+                continue;
+            }
+            if (nums[i] > 0) {
+                nums[i] *= Math.pow(-1, k);
                 break;
             }
+            i++;
+            k--;
+
         }
 
         int sum = 0;
