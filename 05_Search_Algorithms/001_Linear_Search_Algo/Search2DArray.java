@@ -39,7 +39,7 @@ public class Search2DArray {
         return new int[] { -1, -1 };
     }
 
-    // Finding the Maximum and minimum in 2D Array
+    // Finding the Maximum and minimum in 2D Arrayreteterte There has to be some
 
     static int searchMaxArray(int arr[][]) {
         // Checking the boundary conditions
