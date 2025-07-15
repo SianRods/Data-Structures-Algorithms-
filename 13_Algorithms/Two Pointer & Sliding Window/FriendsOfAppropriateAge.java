@@ -21,16 +21,34 @@ public class FriendsOfAppropriateAge {
         Arrays.sort(ages);
         int n = ages.length;
         int right = n - 1;
-        int left = n - 1;
+        int left = 0;
         int result = 0;
-        while (left >= 0) {
-            left = right - 1;
-            while (left >= 0 && ages[left] > 0.5 * ages[right] + 7) {
-                left--;
+        while (right >= 0) {
+            // Restting the Left Pointer to = 0 ==> Taking into account all the other possible cases 
+
+            left = 0;
+            while (left < right && ages[left] <= 0.5 * ages[right] + 7) {
+                left++;
             }
-            result += right - left;
-            right--;
-            left = right - 1;
+
+            int count = 1;
+            int temp = right;
+            while (temp - 1 >= 0 && ages[temp] == ages[temp - 1]) {
+                count++;
+                temp--;
+            }
+
+            // Each person of this age can send requests to all valid people in [left,
+            // right-1]
+            // and to others of the same age except themselves
+            int total = right - left + 1;
+            result += count * (total - count);
+
+            // Add requests among people of the same age (each can send to count-1 others)
+            result += count * (count - 1);
+
+            // Move right pointer to the next group of a different age
+            right = temp - 1;
 
         }
 
