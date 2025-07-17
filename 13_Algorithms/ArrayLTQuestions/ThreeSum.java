@@ -13,6 +13,7 @@ public class ThreeSum {
 
         for (int i = 0; i < n; i++) {
             // Skipping the starting ith elements if they too are equal
+            // It is important to realise how to handle the equal value elements
             if (i > 0 && nums[i] == nums[i - 1])
                 continue;
 
