@@ -19,16 +19,18 @@ public class BoatsToSavePeople {
         int n = people.length;
         int i = 0;
         int count = 0;
-
-        while (i < n - 2) {
-            int j = n - 1;
+        int j = n - 1;
+        while (i <= j) {
+            
             while (j > i && people[i] + people[j] > limit)
                 j--;
             count++;
-            while (i <= j && i < n-1) {
-                count++;
-                i++;
+            if ((j - i - 1) % 2 == 0) {
+                count += (j - i - 1) / 2;
+            } else {
+                count += (j - i - 1) / 2 + 1;
             }
+            i = j + 1;
 
         }
 
