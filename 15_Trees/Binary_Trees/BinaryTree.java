@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class BinaryTrees {
+public class BinaryTree {
 
     // Creating a Node Having Two Pointers ==> Binary Tree
     // And a Constructor to initialize that Node
