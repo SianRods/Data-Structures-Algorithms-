@@ -19,15 +19,15 @@ public class BinaryTree {
 
     private static Node root;
 
-    // Creating Method to Add Value into the Nodes of the Binary Trees to the left and right side
+    // Creating Method to Add Value into the Nodes of the Binary Trees to the left
+    // and right side
 
     public void insert(int val) {
-        //creating a root for out given tree
+        // creating a root for out given tree
         root = new Node(val);
         Scanner sc = new Scanner(System.in);
         fillNode(sc, root);
     }
-
 
     public void fillNode(Scanner sc, Node root) {
         System.out.print("Do you want to insert to left child  of  " + root.value + " ??");
@@ -48,9 +48,7 @@ public class BinaryTree {
             fillNode(sc, root.right);
         }
 
-
     }
-
 
     // Creating a new method to print the Binary Tree Properly
     public static void display() {
@@ -58,7 +56,8 @@ public class BinaryTree {
         printTree(root, "");
     }
 
-    // Printing with proper indentation to show the spacing and preserve the structure
+    // Printing with proper indentation to show the spacing and preserve the
+    // structure
     private static void printTree(Node node, String indent) {
         if (node == null) {
             return;
@@ -68,12 +67,32 @@ public class BinaryTree {
         printTree(node.right, indent + "\t");
     }
 
+    // @Method for Findinf the Level of the Node
 
-    public static void main(String[] args) {
-        BinaryTrees bt = new BinaryTrees();
+    public int findLevel(Node node) {
+        return findLevel(root, node, 0);
+    }
 
-        bt.insert(1);
-        display();
+    private int findLevel(Node node, Node x, int Level) {
+        if (node == null) {
+            return 0;
+        }
+
+        // Here we will go till the node does reached the 'x' node and keep on
+        // incrementing the level till then
+        if (node == x) {
+            return Level;
+        }
+
+        int lLeft = findLevel(node.left, x, Level + 1);
+
+        if (lLeft != 0) {
+            return lLeft;
+        }
+
+        // Else return the level of the Node from the Right path of the node of the tree
+        return findLevel(node.right, x, Level + 1);
+
     }
 
 }

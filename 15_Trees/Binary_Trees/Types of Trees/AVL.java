@@ -1,4 +1,4 @@
-public class BinarySearchTree {
+public class AVL {
 
     public class Node {
         int value;
@@ -74,7 +74,102 @@ public class BinarySearchTree {
 
         // If No NULL
         // if nothing then we have to preserve the previous original connection
+        return rotate(node);
+    }
+
+    public Node rotate(Node node) {
+        if (height(node.left) - height(node.right) > 1) {
+            // Left Rotation Variation
+            if (height(node.left.left) - height(node.left.right) > 0) {
+                // Left-Left Rotation
+                return rotateRight(node);
+            }
+
+            if (height(node.left.left) - height(node.left.right) < 0) {
+                // Left-Right Rotation
+                node.left = rotateLeft(node.left);
+                return rotateRight(node);
+
+            }
+        }
+
+        // Considering the right side rotations
+        if (height(node.right) - height(node.left) > 1) {
+            // Left Rotation Variation
+            if (height(node.right.right) - height(node.right.left) > 0) {
+                // Right-Right Rotation
+                return rotateLeft(node);
+            }
+
+            if (height(node.right.right) - height(node.right.left) < 0) {
+                // Left-Right Rotation
+                node.right = rotateRight(node.right);
+                return rotateLeft(node);
+
+            }
+        }
+
+        // Rerutning Node if the tree after insertion is already balaced
         return node;
+    }
+
+    public Node rotateLeft(Node c) {
+        // Always remember and write functions in terms of Parents , Child and
+        // Grandchild(causing weird balance)
+        Node p = c.right;
+        Node t = p.left;
+
+        p.left = c;
+        c.right = t;
+
+        // Updating the height of each Nodes depending on the rotation types
+        p.height = Math.max(height(p.left), height(p.right) + 1);
+        c.height = Math.max(height(c.left), height(c.right) + 1);
+
+        // Returning the new Node which will be on the left side of the Node c after the
+        // rotation for balancing
+        return p;
+    }
+
+    public Node rotateRight(Node p) {
+        Node c = p.left;
+        Node t = c.right;
+
+        c.right = p;
+        p.left = t;
+
+        p.height = Math.max(height(p.left), height(p.right) + 1);
+        c.height = Math.max(height(c.left), height(c.right) + 1);
+
+        // Returning the new Node which will be on the right side of the Node p after
+        // the rotation for balancing
+        return c;
+    }
+
+    public int findLevel(Node node) {
+        return findLevel(root, node, 0);
+    }
+
+    private int findLevel(Node node, Node x, int Level) {
+        if (node == null) {
+            return 0;
+        }
+
+        // Here we will go till the node does reached the 'x' node and keep on
+        // incrementing the level till then
+        if (node == x) {
+            return Level;
+        }
+
+        int lLeft = findLevel(node.left, x, Level + 1);
+
+        if (lLeft != 0) {
+            return lLeft;
+        }
+
+        // Else return the level of the Node from the Right path of the node of the tree
+        return findLevel(node.right, x, Level + 1);
+
     }
 
     // @Function to check whether a tree is balanced or not
@@ -129,8 +224,8 @@ public class BinarySearchTree {
 
     // Binary Tree Traversal
     // 1] Preorder Traversal VISIT => LEFT => RIGHT
-    // 2] Inorder Traversal LEFT => VISIT => RIGHT  (IN The Sorted Order)
-    // 3] Postorder Traversal LEFT => RIGHT => VISIT;
+    // 2] Inorder Traversal LEFT => VISIT => RIGHT
+    // 3]Postorder Traversal LEFT => RIGHT => VISIT;
     // Each of the traversal techniques have their own benefits and disadv
 
     public void preorderTraversal() {
