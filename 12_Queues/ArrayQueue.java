@@ -1,9 +1,10 @@
-package Queues;
+
 public class ArrayQueue {
-    private int ptr = -1; // pointer to denote the current position of the index
-    // can be init to 0 or -1
+
     private int[] data;
     private final int DEFAULT_SIZE = 10;
+    private int front = -1;
+    private int rear = -1;
 
     public ArrayQueue() {
         data = new int[DEFAULT_SIZE];
@@ -14,71 +15,81 @@ public class ArrayQueue {
 
     }
 
-    // @ Methods to check the isEmpty and isFull --> To avoid index out of bounds
-
     public boolean isEmpty() {
-        // completely empty
-        return ptr == -1;
+
+        return front == -1;
     }
 
     public boolean isFull() {
-        return ptr == data.length -1;
+        return rear == data.length - 1;
     }
 
-    public boolean addElement(int val) {
+    public boolean addLast(int val) {
         if (isFull()) {
-            return true;
+            return false;
         }
 
-        data[++ptr] = val;
+        // Check if element is being added at the 0th index
+        if (front == -1) {
+            front = rear = 0;
+        }
+
+        data[rear++] = val;
         return true;
 
     }
 
-    // returns the head of the queue
     public void peek() {
         if (isEmpty()) {
             System.out.println("Queue is Empty");
             return;
         }
-        System.out.println(data[0]);
+        System.out.println(data[front]);
 
     }
 
-    public boolean pop() {
+    public int pop() {
         if (isEmpty()) {
-            return false;
+            System.out.println("Nothing to Remove Queue is already Empty !! ");
         }
 
-        // running a loop to get entil the ptr
-        // Here we will have to get to a pointer where ptr is currently located in the
-        // given array
-        // hence maintaining a pointer becomes as important
-        // cause when we initialize an array using default size we won't be able to
-        // reach the actual end of the QUEUE
-        // using data.length -1 and hence we need a pointer pointing towards the last
-        // added element in the array
+        int val = data[front];
+        front++;
 
-        // to pop we will be shiftin gall the elements to wards the right hand side
-        // effectivley remving element at the start
-
-        for (int i = 1; i < ptr; i++) {
-            data[i - 1] = data[i];
+        // restting the front and the rear pointers to -1;
+        // if the queue becomes completely empty
+        if (front > rear) {
+            front = rear = 0;
         }
-        return true;
+
+        return val;
     }
+
+    // Method to displayplay the current queue position
 
     public void display() {
         if (isEmpty()) {
-            return;
+            System.out.println("The queue is Empty !!");
+        } else {
+            for (int i = front; i <= rear; i++) {
+                System.out.print(data[i] + " -->");
+            }
+            System.out.println("END");
         }
+    }
 
-        for (int i = 0; i <=ptr; i++) {
-            System.out.print(data[i] + "-->");
-        }
-        System.out.print("END");
-        System.out.println();
-
+    // Dry running the implementaion of queue based on an array
+    public static void main(String[] args) {
+        ArrayQueue cq = new ArrayQueue();
+        cq.addLast(123);
+        cq.addLast(534);
+        cq.addLast(5646);
+        cq.addLast(75);
+        cq.display();
+        cq.pop();
+        cq.display();
+        cq.addLast(12);
+        cq.display();
     }
 
 }

@@ -17,6 +17,7 @@ public class ArrayDynamicStack {
     public int push(int val) {
         // Before pushing we have to check if the array is empty or not
         if (isFull()) {
+            // Increasing the array size by pushing in the new elements 
             increaseArraySize();
         }
         ptr++;

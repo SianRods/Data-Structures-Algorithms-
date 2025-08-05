@@ -1,4 +1,5 @@
 public class StackLL {
+    
     private Node head;
     private Node tail;
     private int size; // maintaining the size of the linked list
