@@ -6,6 +6,9 @@ public class LargestAreaHistogram {
 
     public static void main(String[] args) {
 
+        int arr[] = { 2, 1, 5, 6, 2, 3 };
+        System.out.println(largestRectangleArea(arr));
+
     }
 
     static int maxAreaHistogram(int heights[]) {
@@ -58,6 +61,75 @@ public class LargestAreaHistogram {
             // the above formula and the concept denotes the entirety of this whole sum
         }
         return Math.max(max, areaCurrent);
+    }
+
+    // Solving the problem using nse and pse
+
+    public static int largestRectangleArea(int[] heights) {
+        int n = heights.length;
+        int pse[] = findPSE(heights);
+        int nse[] = findNSE(heights);
+
+        // The area of each of the height in heights will maximum span upto
+        // area = height*(pse-nse-1)
+        int maxArea = 0;
+        for (int i = 0; i < n; i++) {
+            maxArea = Math.max(maxArea, heights[i] * (pse[i] - nse[i] - 1));
+        }
+
+        return maxArea;
+
+    }
+
+    public static int[] findNSE(int[] heights) {
+        int n = heights.length;
+        int j = n - 1;
+        int nse[] = new int[n];
+        Stack<Integer> st = new Stack<>();
+
+        while (j >= 0) {
+            while (!st.isEmpty() && heights[st.peek()] >= heights[j]) {
+                // While the top of the stack is greater than the current element keep on poping
+                // to maintain the monotonically decresing order
+                st.pop();
+            }
+
+            if (st.isEmpty()) {
+                nse[j] = n;
+            } else {
+                nse[j] = st.peek();
+            }
+            st.push(j);
+            j--;
+        }
+
+        return nse;
+
+    }
+
+    public static int[] findPSE(int[] heights) {
+        int n = heights.length;
+        int j = 0;
+        int pse[] = new int[n];
+        Stack<Integer> st = new Stack<>();
+
+        while (j < n) {
+            while (!st.isEmpty() && heights[st.peek()] <= heights[j]) {
+                // While the top of the stack is greater than the current element keep on poping
+                // to maintain the monotonically decresing order
+                st.pop();
+            }
+
+            if (st.isEmpty()) {
+                pse[j] = -1;
+            } else {
+                pse[j] = st.peek();
+            }
+            st.push(j);
+            j++;
+        }
+
+        return pse;
     }
 
 }

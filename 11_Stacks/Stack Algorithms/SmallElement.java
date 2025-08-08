@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class PreviousSmallElement {
+public class SmallElement {
     public int[] previousSmallElement(int arr[]) {
         // Reverse Algorithm to that of nge
         // Here instead of starting from the end we have to start from the last
@@ -41,13 +41,14 @@ public class PreviousSmallElement {
         Stack<Integer> st = new Stack();
         for (int i = 0; i < n; i++) {
 
-            // st.peek()>arr[i] ==> to handle the edge case of counting subarray only once and not more than that
+            // st.peek()>arr[i] ==> to handle the edge case of counting subarray only once
+            // and not more than that
             while (!st.isEmpty() && st.peek() > arr[i]) {
                 st.pop();
             }
 
             if (st.isEmpty()) {
-                sol[i] = -1; 
+                sol[i] = -1;
 
             } else {
                 sol[i] = st.peek();
@@ -57,4 +58,34 @@ public class PreviousSmallElement {
         }
         return sol;
     }
+
+
+    // Finding the next Small Element using stack 
+    public int[] nextSmallElement(int arr[]) {
+        int n = arr.length;
+        int sol[] = new int[n];
+        Stack<Integer> st = new Stack();
+        for (int i = n - 1; i >= 0; i--) {
+            if (st.empty()) {
+                sol[i] = -1; // there's not pse present before the given element
+                st.push(arr[i]);
+            } else {
+                while (!st.isEmpty() && st.peek() >= arr[i]) {
+                    st.pop();
+                }
+
+                if (st.isEmpty()) {
+                    sol[i] = -1; // there's not pse present before the given element
+
+                } else {
+                    sol[i] = st.peek();
+                }
+
+                st.push(arr[i]);
+            }
+        }
+
+        return sol;
+    }
+
 }

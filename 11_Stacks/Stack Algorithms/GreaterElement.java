@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class NextGreaterElement {
+public class GreaterElement {
     // Maintaing a Monotonic Stack ==> to always have greater values
 
     public int[] nge(int arr[]) {
@@ -69,7 +69,7 @@ public class NextGreaterElement {
 
     }
 
-    public int[] nextGreaterElementTwo(int nums[]) {
+    public int[] nextGreaterElementCircularArray(int nums[]) {
         // Imagine a Hypothetical Extension of space and we only start adding the
         // elements
         // into the solution array when i<length of teh array nums
@@ -99,6 +99,10 @@ public class NextGreaterElement {
         }
 
         return sol;
+
+    }
+
+    public int[] previousGreaterElement(int arr[]) {
 
     }
 
