@@ -21,18 +21,23 @@ public class StockSpanner {
         day++;
         li.add(day);
 
-        while (!st.isEmpty() && li.get(0) > st.peek().get(0)) {
+
+        // Note that in this code we will remvoe all the values of the stock prices less than or equal 
+        // to the current value  
+
+        while (!st.isEmpty() && li.get(0) >= st.peek().get(0)) {
             st.pop();
         }
 
-
-        // returning the proper day length dependinng upon the current day 
+        // returning the proper day length dependinng upon the current day
         int length;
         if (st.isEmpty()) {
             length = day + 1; // span is full from day 0 to current
         } else {
             length = day - st.peek().get(1);
         }
+
+        st.push(li);
 
         return length;
     }
