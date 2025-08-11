@@ -30,10 +30,24 @@
  * 2] Discard the (
  * 
  * G] At the end of expression, POP and print all element of stack in postfix
- * array.
+ * array. 
  * 
  * H] for rigth Associative operators we only pop iff the incoming operator has
  * the lower precedence else we dont'
+ * 
+ * 
+ * Formatting Rules for the Expression output  =>
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
  * 
  * 
  */
@@ -46,8 +60,8 @@ public class Prefix {
 
     // }
 
-    public static StringBuilder getPrefix(String s) {
-        Stack<Character> st = new Stack();
+    public static StringBuilder getPostFix(String s) {
+        Stack<Character> st = new Stack<>();
         StringBuilder sb = new StringBuilder();
 
         HashMap<Character, Integer> hm = new HashMap<>();
@@ -63,53 +77,58 @@ public class Prefix {
         hm.put(')', 0);
 
         int n = s.length();
+
         for (int i = 0; i < n; i++) {
+
             char c = s.charAt(i);
 
             // Skipping the Blank Spaces
             if (c == ' ')
                 continue;
 
-            // Else if it is a number
+            // Else if it is a number ==> Multi Digit Support
             if (!hm.containsKey(c)) {
-                sb.append(c);
+                // Read full number (could be multiple digits)
+                StringBuilder num = new StringBuilder();
+                while (i < n && !hm.containsKey(s.charAt(i)) && s.charAt(i) != ' ') {
+                    num.append(s.charAt(i));
+                    i++;
+                }
+                sb.append(num).append(" "); // add a space so numbers/operators are separated
+                i--; // because for-loop will increment i
+                continue;
+            }
+
+            // Correct Handling of opening brackets
+            // Even though the opening bracket is in the hashmap whenever we use ( with
+            // precendecen value
+            // Edge case '(' == st.peek() and '(' ==> incoming element == Wrong Operations
+            // Hence we are explicitly handling opening brackets
+            if (c == '(') {
+                st.push(c);
+                continue;
             }
 
             // Parenthesis rule
             if (c == ')') {
                 while (!st.isEmpty() && st.peek() != '(') {
-                    sb.append(st.pop());
+                    sb.append(st.pop() + " ");
                 }
-
                 // discard the opening parenthesis
                 st.pop();
                 continue;
             }
 
-            if (!st.isEmpty() || st.peek() == '(') {
-
-                // Precedence of the incoming operator is greater
-                if (hm.get(st.peek()) < hm.get(c)) {
-                    st.push(c);
-                   
-                }
-
-                // Incoming has lower or equal precedence we keep on popping the elements from
-                // the stack
-                while (!st.isEmpty() && hm.get(st.peek()) >= hm.get(c)) {
-                    sb.append(st.pop());
-                }
-
-                // Now we push inside the stack
-                st.push(c);
-            } else {
-                // If Stack is empty simply push the operator inside the stack
-                st.push(c);
+            while (!st.isEmpty() && hm.get(st.peek()) >= hm.get(c)) {
+                sb.append(st.pop() + " ");
             }
+
+            st.push(c);
+
         }
 
         while (!st.isEmpty()) {
-            sb.append(st.pop());
+            sb.append(st.pop() + " ");
         }
 
         return sb;
@@ -118,8 +137,10 @@ public class Prefix {
 
     // Test the functions
     public static void main(String[] args) {
-        String s = " A + B * C - D / E";
-        System.out.println(getPrefix(s));
+        // String s = " A + B * C - D / E";
+        // String s = "( a + b - c ) * d - ( e + f ) ";
+        String s = "( 42 + 35) * 53 / 6";
+        System.out.println(getPostFix(s));
     }
 
 }
