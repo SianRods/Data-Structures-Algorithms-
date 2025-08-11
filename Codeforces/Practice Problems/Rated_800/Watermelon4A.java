@@ -1,3 +1,4 @@
+package Rated_800;
 import java.util.Scanner;
 
 public class Watermelon4A {

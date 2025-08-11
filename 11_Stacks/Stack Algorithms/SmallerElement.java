@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class SmallElement {
+public class SmallerElement {
     public int[] previousSmallElement(int arr[]) {
         // Reverse Algorithm to that of nge
         // Here instead of starting from the end we have to start from the last
@@ -59,8 +59,7 @@ public class SmallElement {
         return sol;
     }
 
-
-    // Finding the next Small Element using stack 
+    // Finding the next Small Element using stack
     public int[] nextSmallElement(int arr[]) {
         int n = arr.length;
         int sol[] = new int[n];

@@ -1,0 +1,1 @@
+{"name":"Local: BitLand","url":"d:\\dsa\\Codeforces\\Practice Problems\\BitLand.java","tests":[{"id":1754830450589,"input":"1\n++X\n","output":"1\n"},{"id":1754830707405,"input":"2\nX++\n--X\n","output":"0\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\dsa\\Codeforces\\Practice Problems\\BitLand.java","group":"local","local":true}

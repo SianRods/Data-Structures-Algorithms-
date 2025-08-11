@@ -103,7 +103,7 @@ public class GreaterElement {
     }
 
     public int[] previousGreaterElement(int arr[]) {
-
+        return null;
     }
 
 }
