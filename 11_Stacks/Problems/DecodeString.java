@@ -11,59 +11,43 @@ public class DecodeString {
 
         Stack<String> s1 = new Stack<>();
         Stack<Integer> s2 = new Stack<>();
-        Set<Character> set = new HashSet<>();
-        set.add('[');
-        set.add(']');
+        StringBuilder currStr = new StringBuilder();
+        int num = 0;
 
-        int n = s.length();
-        int i = 0;
-        for (; i < n; i++) {
-            char c = s.charAt(i);
+        // Converting it to the char arrays is similar logic as using s.charAt(i);
+        for (char c : s.toCharArray()) {
+            // Check if it is a digit
+            if (Character.isDigit(c)) {
+                // keep on properly maintaing the number variable till '['before pushing in
+                num = num * 10 + (c - '0');
+            } else if (c == '[') {
+                // Push the multi-digit number to the num stack
+                s2.push(num);
+                // push the current string into the stack
+                s1.push(currStr.toString());
+                num = 0;
+                currStr = new StringBuilder();
+            } else if (c == ']') {
+                // Just the closing-square bracket
+                // Start appending the previous string to the result variable
+                String prev = s1.pop();
+                int repeat = s2.pop();
 
-            if (!set.contains(c) && c < 'a' && c > 'z') {
-                StringBuilder num = new StringBuilder();
-                while (i < n && !set.contains(s.charAt(i)) && (s.charAt(i) < 'a' || s.charAt(i) > 'z')) {
-                    num.append(s.charAt(i));
-                    i++;
+                StringBuilder temp = new StringBuilder(prev);
+
+                for (int i = 0; i < repeat; i++) {
+                    temp.append(currStr);
                 }
-                i--;// Decrementing i again to keep the flow of the outerloop in order
-                s2.push(Integer.parseInt(num.toString()));
-                continue;
-            }
 
-            else if (c == '[') {
-                StringBuilder seq = new StringBuilder();
-                i++;
-                while (i < n && s.charAt(i) != ']') {
-                    seq.append(s.charAt(i));
-                    i++;
-                }
-
-                i--; // to keep the flow of the outer loop in the order
-                s1.add(seq.toString());
-            }
-
-            else {
-                break;
+                currStr = temp;
+            } else {
+                // just appending the normal characters
+                currStr.append(c);
             }
 
         }
 
-        StringBuilder result = new StringBuilder();
-        while (!s1.isEmpty() && !s2.isEmpty()) {
-            for (int k = 0; k < s2.pop(); k++) {
-                result.append(s1.peek());
-            }
+        return currStr.toString();
 
-            s1.pop();
-        }
-
-        // Attaching the remaining string
-
-        while (i < n) {
-            result.append(s.charAt(i));
-        }
-
-        return result.toString();
     }
 }
