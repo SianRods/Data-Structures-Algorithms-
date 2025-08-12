@@ -57,7 +57,7 @@ public class Postfix {
         hm.put('/', 2);
         hm.put('+', 1);
         hm.put('-', 1);
-        // Adding parenthesis only to identitfy easily that an incoming character is a
+        // Adding parenthesis only to identify easily that an incoming character is a
         // number digit
         hm.put('(', 0);
         hm.put(')', 0);
@@ -80,6 +80,7 @@ public class Postfix {
                     num.append(s.charAt(i));
                     i++;
                 }
+
                 sb.append(num).append(" "); // add a space so numbers/operators are separated
                 i--; // because for-loop will increment i
                 continue;
@@ -121,7 +122,8 @@ public class Postfix {
 
     }
 
-    // Evaluating a Postfix Expression :
+    // Evaluating a Postfix Expression : ==> Function works correctly has been
+    // tested
     public static double getPostValue(StringBuilder s) {
         Stack<Double> st = new Stack<>();
         int n = s.length();
@@ -132,6 +134,7 @@ public class Postfix {
         hm.put('/', 3);
         hm.put('+', 2);
         hm.put('-', 1);
+        
         // Adding parenthesis only to identitfy easily that an incoming character is a
         // number digit
         hm.put('(', 0);
@@ -151,14 +154,16 @@ public class Postfix {
                     num.append(s.charAt(i));
                     i++;
                 }
+
                 // Direclty addding the number to the stack;
-                st.push((double) Integer.parseInt(num.toString()));
+                st.push(Double.parseDouble(num.toString()));
                 i--; // because for-loop will increment i
                 continue;
             } else {
                 // Performing the operations using values added to the stack
                 double op1 = st.pop();
                 double op2 = st.pop();
+
                 int k = hm.get(c);
                 if (k == 5) {
                     st.push(Math.pow(op2, op1));
@@ -184,7 +189,7 @@ public class Postfix {
         // String s = "( a + b - c ) * d - ( e + f ) ";
         // String s = "( 42 + 35) * 53 / 6";
         String s = "2 4 6 + *";
-        System.out.println(getPostValue(getPostFix(s)));
+        System.out.println(getPostValue(new StringBuilder(s)));
     }
 
 }
