@@ -157,6 +157,9 @@ public class Postfix {
 
                 // Direclty addding the number to the stack;
                 st.push(Double.parseDouble(num.toString()));
+
+                // The below Statement is very of decrementing the i is very important 
+                // dry-run on pen and paper to understand it better
                 i--; // because for-loop will increment i
                 continue;
             } else {
