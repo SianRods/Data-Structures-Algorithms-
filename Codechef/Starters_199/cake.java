@@ -1,8 +1,6 @@
-package Codechef.Starters
+package Codechef.Starters_199;
 
 import java.util.Scanner;
-
-199;
 
 public class cake {
     public static void main(String[] args) {
