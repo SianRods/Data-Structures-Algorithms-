@@ -22,7 +22,7 @@ void Merge(int arr[], int left, int mid, int right)
 
     int i = 0;
     int j = 0;
-     int k = left;
+    int k = left;
 
     while (i < n1 && j < n2)
     {
@@ -66,18 +66,17 @@ void MergeSort(int arr[], int left, int right)
     }
 }
 
-
-
-
-void printArray(int arr[], int size) {
-    for (int i = 0; i < size; i++) {
+void printArray(int arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
         printf("%d ", arr[i]);
     }
     printf("\n");
 }
 
-
-int main() {
+int main()
+{
     int arr[] = {12, 11, 13, 5, 6, 7};
     int size = sizeof(arr) / sizeof(arr[0]);
 
