@@ -1,0 +1,1 @@
+{"name":"Local: q1","url":"d:\\dsa\\Codeforces\\DIV_3_1047\\q1.java","tests":[{"id":1757256048678,"input":"3\n1 4\n1 5\n5 4\n","output":"1\n10\n21\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\dsa\\Codeforces\\DIV_3_1047\\q1.java","group":"local","local":true}

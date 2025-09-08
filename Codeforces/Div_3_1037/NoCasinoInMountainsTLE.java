@@ -1,4 +1,4 @@
-package Codeforces.Div_3_1037;
+package Codeforces.DIV_3_1037;
 
 import java.util.Scanner;
 
