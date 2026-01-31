@@ -1,0 +1,1 @@
+{"name":"Local: q1","url":"d:\\dsa\\Codechef\\Starters_205\\q1.java","tests":[{"id":1758725997243,"input":"4\n0 3\n2 4\n9 0\n5 1","output":"2\n4\n3\n3"},{"id":1758729801135,"input":"3\n3\n1 2 2\n2\n1 1\n4\n2 2 1 2","output":"Yes\nNo\nYes"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\dsa\\Codechef\\Starters_205\\q1.java","group":"local","local":true}
