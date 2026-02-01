@@ -19,7 +19,7 @@ public class MaximumPointsFromCards {
             leftsum += cardPoints[i];
         }
 
-        maxsum = leftsum;
+        maxsum = leftsum;   
 
         int j = cardPoints.length - 1;
         for (i = k - 1; i >= 0; i--) {
