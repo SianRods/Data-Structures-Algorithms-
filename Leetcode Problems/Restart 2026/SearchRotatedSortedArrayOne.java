@@ -19,7 +19,7 @@ public class SearchRotatedSortedArrayOne {
      * 
      */
     public static int solution1(int arr[], int target) {
-        int k = findRotatedIndex(arr);
+        int k = findRotatedIndexOne(arr);
         int n = arr.length;
         System.out.println("The pivot index is " + k);
         if (target >= arr[k] && target <= arr[n - 1]) {
@@ -34,8 +34,19 @@ public class SearchRotatedSortedArrayOne {
 
     }
 
-    // here as per the given question we are assuming that all the ements in
-    public static int findRotatedIndex(int arr[]) {
+    /**
+     * This function takes the input array and finds the pivot index in O(n) time
+     * complexity
+     * which is not the best possible scenario considering we already know binary
+     * search and
+     * can implement the similar logic of binary search --> for finding out the
+     * pivot elment
+     * in O(log n) time complexity
+     * 
+     * @param arr
+     * @return
+     */
+    public static int findRotatedIndexOne(int arr[]) {
         int n = arr.length;
         for (int i = 1; i < n; i++) {
             if (arr[i - 1] > arr[i]) {
@@ -69,29 +80,66 @@ public class SearchRotatedSortedArrayOne {
         return -1;
     }
 
-    // [3,4,5,6,0,1,2] sampel array with target=0
+    /**
+     * Most important part to understand in this question is maintaining a time
+     * complexity
+     * of O(logn) always in every situation
+     * Only Algo which helps maintains this time complexity if O(logn)
+     * and hence we must implement binarysearch() in a way that we find pivot
+     * Finding Pivot() --> must be smartly implemented in O(logn) time complexity
+     * to maintain the overall time complexity of O(logn) in the question asked
+     * 
+     * @param arr    --> possibly rotated array
+     * @param target --> target index to check on
+     * @return --> index of the target element if it exists else == -1
+     */
     public static int solution2(int arr[], int target) {
-        int start = 0;
-        int end = arr.length - 1;
+        int pivot = findRotatedIndexTwo(arr);
+        // Search in the first half part
+        int ans = binarySearchBounds(arr, target, 0, pivot);
 
-        while (start <= end) {
-            int mid = start + ((end - start) / 2);
-            if (arr[mid] == target) {
-                return mid;
-            } else if (target < arr[mid]) {
-                if (arr[start] > target) {
-                    start = mid + 1;
-                } else {
-                    end = mid - 1;
-                
-                }else{
-                        
-                }
-
-                }
-            }
+        // if ans does not exists if the first half --> check the second half
+        if (ans != -1) {
+            return ans;
+        } else {
+            ans = binarySearchBounds(arr, target, pivot + 1, arr.length - 1);
         }
 
-}
+        return ans;
+    }
+
+    /**
+     * Searching the pivot in O(logn) time complexity
+     * 
+     * @param arr --> input possibly rotated
+     * @return --> index of the pivot is it exists
+     */
+    public static int findRotatedIndexTwo(int arr[]) {
+        int start = 0;
+        int end = arr.length - 1;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            // scene one of fidning pivot
+            if (mid < end && arr[mid] > arr[mid + 1]) {
+                return mid;
+            }
+
+            // scene two of finding pivot
+            if (start < mid && arr[mid - 1] > arr[mid]) {
+                return mid - 1;
+            }
+
+            else if (arr[mid] <= arr[start]) {
+                end = mid - 1;
+            } else {
+                start = mid + 1;
+            }
+
+        }
+        // if the pivot is not found returns --> -1
+        return -1;
+
+    }
 
 }
