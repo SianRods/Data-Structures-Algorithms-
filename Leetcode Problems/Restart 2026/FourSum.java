@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class FourSum {
     public static void main(String[] args) {
@@ -63,6 +60,6 @@ public class FourSum {
     }
 
     public static List<List<Integer>> solution2(int arr[], int target) {
-
+        return null;
     }
 }
