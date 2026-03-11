@@ -12,8 +12,7 @@ public class FourSum {
     public static List<List<Integer>> solution1(int arr[], int target) {
         Arrays.sort(arr);
         // detetcting the dulpicate triplets is very important
-        // In this question we need to skip the duplicates at three locations i , j and
-        // k
+        // In this question we need to skip the duplicates at three locations i , j and k
         int n = arr.length;
 
         List<List<Integer>> sol = new ArrayList<>();
