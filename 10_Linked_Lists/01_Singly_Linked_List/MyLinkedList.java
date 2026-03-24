@@ -1,5 +1,7 @@
 
 public class MyLinkedList {
+    // In this version we ar maintaining both the heads and the tails pointer
+    // helps in insertion at last in O(1) time complexity 
     private Node head;
     private Node tail;
     private int size; // maintaining the size of the linked list

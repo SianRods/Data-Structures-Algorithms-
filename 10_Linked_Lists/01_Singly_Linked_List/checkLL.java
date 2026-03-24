@@ -1,5 +1,6 @@
 
-public class checkLL {
+
+public class checkLL extends MyLinkedList {
     public static void main(String args[]) {
         MyLinkedList ll = new MyLinkedList();
         ll.addFirst(21);
