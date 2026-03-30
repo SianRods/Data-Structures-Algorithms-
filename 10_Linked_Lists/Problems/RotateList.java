@@ -1,11 +1,25 @@
-import java.lang.Thread.State;
-import java.lang.classfile.components.ClassPrinter.ListNode;
 
 public class RotateList {
     public static void main(String[] args) {
 
     }
 
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
+    }
 
     // APPLYING THE CONCEPT OF THE CIRCULAR LINKED LIST
     static ListNode rotateRight(ListNode head, int k) {
@@ -40,7 +54,7 @@ public class RotateList {
         return solHead;
     }
 
-    // BELOW APPROACH WAS MY INTITAL NORMAL UNECESASRY APPPORACH --> 
+    // BELOW APPROACH WAS MY INTITAL NORMAL UNECESASRY APPPORACH -->
     // Solution using the Linear Singly List Operations -->
     // static ListNode rotateList(ListNode ;head, int k) {
     // // Shift the head and the tail position
@@ -67,6 +81,5 @@ public class RotateList {
     // }
 
     // Using the Concept of the Cirular List (Circular Linked List)
-
 
 }

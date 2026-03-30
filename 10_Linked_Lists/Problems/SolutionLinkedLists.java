@@ -203,39 +203,6 @@ public class SolutionLinkedLists {
         tail.next = null;
     }
 
-    // Merging Two Sorted Lists --> without creating a new Linked Empty List
-
-    // public void mergeLists(SolutionLinkedLists l2) {
-    // mergeSortedLists(this.head, l2.head);
-    // }
-
-    // private void mergeSortedLists(Node head1, Node head2) {
-    // Node temp1 = head1;
-    // Node temp2 = head2;
-    // // Handling the null pointer exception
-    // if(head1==null ){
-    // if(head2==null){
-    // return ;
-    // }
-    // return ;
-    // }
-
-    // while (temp1.next != null || temp2.next != null) {
-
-    // if (temp2.data >= temp1.data && temp2.data < temp1.next.data) {
-    // head2=temp2.next;
-    // temp2.next = temp1.next;
-    // temp1.next = temp2;
-    // temp2 = head2;
-    // } else {
-    // temp1 = temp1.next;
-    // }
-    // }
-    // }
-
-    // Merging List by creating a new Linked List and keep on adding the smaller
-    // elements to it
-
     public SolutionLinkedLists mergeLists(SolutionLinkedLists l1, SolutionLinkedLists l2) {
         Node temp1 = l1.head;
         Node temp2 = l2.head;
@@ -446,7 +413,7 @@ public class SolutionLinkedLists {
             return head;
 
         }
-        Node t2 = t1.next;  
+        Node t2 = t1.next;
         if (t2 == null) {
             return t1;
         }
@@ -474,8 +441,8 @@ public class SolutionLinkedLists {
             t1 = t2;
             t2 = t3;
             t3 = t3.next;
-
         }
+
         // At the end point swapping the last node
         // as t3 is already null t2 here represents the last node in the linked list to
         // be reversed
