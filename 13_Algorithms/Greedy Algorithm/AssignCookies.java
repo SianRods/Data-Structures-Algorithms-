@@ -1,4 +1,4 @@
-package 13_ Algorithms.Greedy Algorithm;
+
 // https://leetcode.com/problems/assign-cookies/description/
 import java.util.Arrays;
 
@@ -11,7 +11,7 @@ public class AssignCookies {
         Arrays.sort(g);
         Arrays.sort(s);
 
-        int i, j = 0;
+        int i = 0, j = 0;
         // i >> pointer for the greed array
         // j >> pointer for cookies in a packet array
 

@@ -31,6 +31,7 @@ public class LongestHarmoniousSubsequence {
 
         }
 
+        return -1;
     }
 
     public static int findLHSHashtableMethod(int[] nums) {
