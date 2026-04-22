@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 public class Heap<T extends Comparable<T>> {
@@ -121,16 +122,16 @@ public class Heap<T extends Comparable<T>> {
     // heapify function
     // for every non-leaf elements
     // Here we are just writing down the downHeap() function
-    public void heapify(int arr[], int n, int index) {
+    public void maxHeapify(int arr[], int n, int index) {
         int max = index;
         int left = getLeft(index);
         int right = getRight(index);
 
-        if (left < n && arr[left] > arr[index]) {
+        if (left < n && arr[left] > arr[max]) {
             max = left;
         }
 
-        if (right < n && arr[right] > arr[index]) {
+        if (right < n && arr[right] > arr[max]) {
             max = right;
         }
 
@@ -140,7 +141,7 @@ public class Heap<T extends Comparable<T>> {
             int temp = arr[index];
             arr[index] = arr[max];
             arr[max] = temp;
-            heapify(arr, n, max);
+            maxHeapify(arr, n, max);
         }
 
     }
