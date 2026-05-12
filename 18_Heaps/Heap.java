@@ -4,10 +4,10 @@ import java.util.ArrayList;
 public class Heap<T extends Comparable<T>> {
     private ArrayList<T> list;
 
-    // creating a 0 indexed list
-    // parent == (i-1)/2
-    // leftChild== 2*i+1
-    // rightChild == 2*(i+1)
+    // creating a 0 ==> indexed list
+    // parent ==> (i-1)/2
+    // leftChild==> 2*i+1
+    // rightChild ==> 2*(i+1)
 
     // constructor to instantiate the list
     public Heap() {
@@ -41,16 +41,17 @@ public class Heap<T extends Comparable<T>> {
         upheap(list.size() - 1);
     }
 
+    // here we  will keep on pushing the value up by comparing to it's immediate parent
     private void upheap(int index) {
         if (index == 0) {
             return;
         }
-
         // here the index represents the bottomost part
         // so we have to start comparing it with it's parent
         int parent = getParent(index);
-
+        
         // here we are implementing a minheap
+        // keep on pushing the value up till the condition is not violated
         if (list.get(parent).compareTo(list.get(index)) > 0) {
             swap(parent, index);
             upheap(parent);
@@ -60,8 +61,9 @@ public class Heap<T extends Comparable<T>> {
     // implemeting the removal --> incase of heap we always delete the first index
     // element(Topmost)
     // uses the concept of DownHeap
+    
     public T remove() throws Exception {
-
+        
         if (list.isEmpty()) {
             throw new Exception("Cannot Delete from an Empty Heap :(");
         }
@@ -78,6 +80,10 @@ public class Heap<T extends Comparable<T>> {
 
     }
 
+    // This process is also called Heapify
+    // heapify function is dependent on the type of the heap we are using 
+    //  for minHeap --> track the min value among the parent and it's children
+    //  for maxHeap --> track the max value 
     private void downheap(int index) {
         int min = index;
         int left = getLeft(index);

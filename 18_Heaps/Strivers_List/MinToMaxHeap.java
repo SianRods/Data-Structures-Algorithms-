@@ -14,6 +14,8 @@ public class MinToMaxHeap {
     }
 
     public static void maxHeapify(int arr[], int n, int index) {
+        // the only difference between the max and min heap formation and code 
+        // for maxHeap --> find max and swap the parent with it and vice-versa
         int max = index;
         int left = 2 * index + 1;
         int right = 2 * (index + 1);

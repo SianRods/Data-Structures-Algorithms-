@@ -1,4 +1,3 @@
-
 import java.util.PriorityQueue;
 
 public class KthSmallestElement {
@@ -15,23 +14,28 @@ public class KthSmallestElement {
      * --> O(N(LogK))
      * 
      * @param arr
-     * @return kth largest element in the array
+     * @return kth smallest element in the array
      */
     public static int solution(int arr[], int k) {
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>(k);
+        // initializing a max heap --> cause we do require to remove the maximum 
+        // element added or present in the batch
+        PriorityQueue<Integer> pq = new PriorityQueue<>(k, (a, b) -> b - a);
 
-        for (int i = 0; i < k; i++) {
+        for (int i = 0; i < k ; i++) {
             pq.add(arr[i]);
         }
 
         for (int i = k; i < arr.length; i++) {
-            pq.remove();// remove the first object minimum
-            // add the new one
-            pq.add(arr[i]);
+            if (arr[i] < pq.peek()) {
+                pq.poll(); // Remove the largest element
+                pq.add(arr[i]); // adding the new smaller element 
+            }
         }
 
-        return pq.remove();
+
+        // the root of the heap becomes the kth smallest 
+        return pq.peek();
 
     }
 

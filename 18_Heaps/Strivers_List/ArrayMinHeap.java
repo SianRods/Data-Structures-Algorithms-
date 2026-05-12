@@ -17,11 +17,11 @@ public class ArrayMinHeap {
 
             // write each of the breakdown condition seperately
             // also keep on checking the validity of the index bounds
-            if (left < length && arr[left] > arr[i]) {
+            if (left < length && arr[left] < arr[i]) {
                 return false;
             }
 
-            if (right < length && arr[right] > arr[i]) {
+            if (right < length && arr[right] < arr[i]) {
                 return false;
             }
         }
