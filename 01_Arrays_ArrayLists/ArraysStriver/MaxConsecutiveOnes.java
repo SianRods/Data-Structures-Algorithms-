@@ -25,4 +25,29 @@ public class MaxConsecutiveOnes {
 
         }
     }
+
+    /**
+     * This Function can only be used if the array contains only 0 and 1 in it
+     *  
+     * 
+     * @param arr
+     * @return
+     */
+    public static int countMaxConsecOnes(int arr[]) {
+        int maxSum = 0;
+        int runSum = 0;
+
+        for (int num : arr) {
+            runSum += num;
+
+            if (num == 0) {
+                runSum = 0;
+            }
+            maxSum = Math.max(maxSum, runSum);
+        }
+
+        return maxSum;
+
+    }
+
 }

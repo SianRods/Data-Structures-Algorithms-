@@ -13,6 +13,15 @@ public class RotateArray {
 
     }
 
+    /**
+     * The following Approach directly uses O(n) time complexity
+     * O(N) Space Complexity in order to place the elements at their
+     * correct location after rotation
+     * 
+     * @param nums
+     * @param k
+     * @return
+     */
     public static int[] solution1(int nums[], int k) {
 
         int n = nums.length;
@@ -22,11 +31,22 @@ public class RotateArray {
             arr[(i + k) % n] = nums[i];
 
         }
-
         return arr;
 
     }
 
+    /**
+     * This is the brute force approach in which we just rotate left or right
+     * n times each
+     * 
+     * Time Complexity --> O(n**2)
+     * Space Complexity --> O(n)
+     * 
+     * 
+     * @param nums
+     * @param k
+     * @return
+     */
     public static int[] solution2(int nums[], int k) {
 
         int n = nums.length;
@@ -50,6 +70,9 @@ public class RotateArray {
      * 
      * Note that this method takes input as k but when k>n
      * Normalizing k is very important
+     * We are simply reversing within a set bounds in order to rotate
+     * left or right by k elements
+     * 
      * 
      * @param nums input array
      * @param k    number of right rotations to be perfromed
@@ -58,8 +81,7 @@ public class RotateArray {
     public static int[] solution3(int nums[], int k) {
         int n = nums.length;
 
-
-        // most important part 
+        // most important part
         k = k % n;
 
         reverseWithinBounds(nums, 0, n - 1);
@@ -93,4 +115,5 @@ public class RotateArray {
         }
 
     }
+
 }
