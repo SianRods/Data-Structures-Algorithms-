@@ -1,4 +1,3 @@
-package ArrayLTQuestions;
 
 public class MaximumDifferenceByRemapping {
     public static void main(String[] args) {

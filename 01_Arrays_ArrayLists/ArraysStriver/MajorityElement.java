@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class MajorityElement {
@@ -10,6 +9,13 @@ public class MajorityElement {
         System.out.println(MajorityElement2(arr));
     }
 
+    /**
+     * Here we are implementing the Moore's Voting Algorithm which is completely based on voting 
+     * for possible candidate solutions present in the given input array
+     * 
+     * @param arr
+     * @return
+     */
     public static int MajorityElement1(int arr[]) {
         int candidate1 = -1;
         int count = 0;

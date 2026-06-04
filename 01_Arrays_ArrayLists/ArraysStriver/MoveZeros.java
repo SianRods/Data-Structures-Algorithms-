@@ -76,19 +76,6 @@ public class MoveZeros {
 
     }
 
-    public static int[] sample(int arr[]) {
-        int n = arr.length;
-        int i = 0;
-        int prevZero = -1;
-        while (i < n) {
-            if (arr[i] != 0 && prevZero != -1) {
-                // swap both the things and update the
-
-            }
-
-        }
-
-        return arr;
-    }
+    
 
 }
