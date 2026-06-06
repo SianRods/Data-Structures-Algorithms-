@@ -11,6 +11,14 @@ public class RearrangeArrayElementsBySize {
         System.out.println(Arrays.toString(solution(arr)));
     }
 
+    /**
+     * The most simplest approach in order to place the elements in the new array 
+     * using the two pointer methods
+     * 
+     * 
+     * @param arr
+     * @return
+     */
     public static int[] solution(int arr[]) {
         int n = arr.length;
         int i = 0;
