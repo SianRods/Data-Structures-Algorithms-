@@ -1,4 +1,4 @@
-import java.util.Hashtable;
+import java.util.Hashtable; 
 
 public class SubarraySumEqualsK {
     public static void main(String[] args) {
@@ -33,6 +33,28 @@ public class SubarraySumEqualsK {
 
         return count;
 
+    }
+
+    public static int subArraySumLessThanEqualToKPositives(int arr[], int k) {
+
+        int sum = 0;
+        int i = 0;
+        int j = 0;
+        int n = arr.length;
+        int total = 0;
+
+        while (j < n) {
+            sum += arr[j++];
+
+            while (sum > k && i <= j) {
+                sum -= arr[i++];
+            }
+
+            total += j - i + 1;
+
+        }
+
+        return total;
     }
 
 }

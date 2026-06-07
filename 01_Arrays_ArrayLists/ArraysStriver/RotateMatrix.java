@@ -11,8 +11,7 @@ public class RotateMatrix {
     public static void solution(int matrix[][]) {
 
         int n = matrix.length;
-
-        performTransform(matrix);
+         performTransposeMatrix(matrix);
         for (int i = 0; i < n; i++) {
             reverseArray(matrix[i]);
 
@@ -20,7 +19,7 @@ public class RotateMatrix {
 
     }
 
-    public static void performTransform(int matrix[][]) {
+    public static void performTransposeMatrix(int matrix[][]) {
 
         int n = matrix.length;
 
@@ -54,5 +53,7 @@ public class RotateMatrix {
             System.out.println(Arrays.toString(matrix[i]));
         }
     }
+
+  
 
 }
