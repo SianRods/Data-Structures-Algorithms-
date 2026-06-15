@@ -18,32 +18,32 @@ public class MajorityElement {
      */
     public static int MajorityElement1(int arr[]) {
         int candidate1 = -1;
-        int count = 0;
+        int count1 = 0;
         int n = arr.length;
 
         // Select the majority candidate
         for (int i = 0; i < n; i++) {
             if (candidate1 == arr[i]) {
-                count++;
-            } else if (count == 0) {
+                count1++;
+            } else if (count1 == 0) {
                 candidate1 = arr[i];
-                count = 1;
+                count1 = 1;
             } else {
-                count--;
+                count1--;
             }
 
         }
 
-        count = 0;
+        count1 = 0;
         // check it's frequency again
         for (int i = 0; i < n; i++) {
             if (candidate1 == arr[i]) {
-                count++;
+                count1++;
             }
 
         }
 
-        if (count > arr.length / 2) {
+        if (count1 > arr.length / 2) {
             return candidate1;
         }
         return -1;
@@ -75,11 +75,14 @@ public class MajorityElement {
                 candidate2 = arr[i];
                 count2 = 1;
             } else {
+                // modified verion focuses exactly on this part where is the current element 
+                // matches none of the two candidates decrease both the candidates
                 count1--;
                 count2--;
             }
         }
 
+        // Compulsory in case of Advaned Moore's Alogrithm 
         count1 = 0;
         count2 = 0;
         for (int i = 0; i < arr.length; i++) {

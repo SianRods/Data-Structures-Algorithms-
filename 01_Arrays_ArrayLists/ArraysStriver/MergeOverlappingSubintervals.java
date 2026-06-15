@@ -4,12 +4,41 @@ import java.util.List;
 
 public class MergeOverlappingSubintervals {
     public static void main(String[] args) {
-        int arr[][] = { { 1, 3 }, { 2, 6 }, { 8, 10 }, { 15, 18 } };
-        print2D(solution1(arr));
+        // List<List<Integer>> intervals1 = List.of(
+        // List.of(1, 3),
+        // List.of(2, 6),
+        // List.of(8, 10),
+        // List.of(15, 18));
 
+        List<List<Integer>> intervals2 = new ArrayList<>(
+                List.of(
+                        List.of(1, 4),
+                        List.of(4, 5)));
+        System.out.println(solutionArrayList(intervals2));
     }
 
-    public static int[][] solution1(int[][] intervals) {
+    public static List<List<Integer>> solutionArrayList(List<List<Integer>> intervals) {
+
+        intervals = new ArrayList<>(intervals);
+        intervals.sort((a, b) -> a.get(0) - b.get(0));
+
+        List<List<Integer>> res = new ArrayList<>();
+
+        for (List<Integer> curr : intervals) {
+
+            if (res.isEmpty() || curr.get(0) > res.getLast().get(1)) {
+                res.add(new ArrayList<>(curr));
+            } else {
+                res.getLast().set(
+                        1,
+                        Math.max(res.getLast().get(1), curr.get(1)));
+            }
+        }
+
+        return res;
+    }
+
+    public static int[][] solutionArrays(int[][] intervals) {
         // Being greedy and sorting on the basis of the start index
         Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
         int n = intervals.length;
@@ -69,5 +98,4 @@ public class MergeOverlappingSubintervals {
             System.out.println(); // move to next row
         }
     }
-
 }
