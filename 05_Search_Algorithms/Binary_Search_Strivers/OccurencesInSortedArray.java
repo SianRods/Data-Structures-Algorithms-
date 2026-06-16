@@ -1,13 +1,28 @@
-public class FirstAndLastPositionInArray {
+public class OccurencesInSortedArray {
     public static void main(String[] args) {
-        int arr[] = { 5, 7, 7, 8, 8, 10 };
-        int target = 6;
-        int sol[] = new int[2];
-        sol[1] = upperBound(arr, target);
-        sol[0] = lowerBound(arr, target);
-        System.out.println("The Bounds for the given element" + target + "are {" + sol[0] + "," + sol[1] + "}");
+        // int arr[]={2, 2 , 3 , 3 , 3 , 3 , 4};
+        int arr[] = { 1, 1, 2, 2, 2, 2, 2, 3 };
+        int x = 2;
+        System.out.println(solution(arr, x));
     }
 
+    /**
+     * Understand the difference between Decreasing and Non-Decreasing in given
+     * words and we can simply use the concept of ceil and floor in order to find the 
+     * number of occurences of a target in given input array    
+     * 
+     * 
+     * @param arr Sorted Array
+     * @param x
+     * @return
+     */
+    public static int solution(int arr[], int x) {
+        return upperBound(arr, x) - lowerBound(arr, x) + 1;
+
+    }
+
+    // find the occurunces of element in a sorted array using the lower and the
+    // upper bound
     public static int upperBound(int arr[], int x) {
         int start = 0;
         int end = arr.length - 1;
@@ -25,7 +40,7 @@ public class FirstAndLastPositionInArray {
             }
 
         }
-        if (start - 1 >= 0 && arr[start - 1] == x)
+        if (end >= 0 && arr[end] == x)
             return start - 1;
         return -1;
 

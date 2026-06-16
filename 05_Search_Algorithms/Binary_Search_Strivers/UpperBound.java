@@ -19,18 +19,22 @@ public class UpperBound {
     public static int solution(int arr[], int x) {
         int start = 0;
         int end = arr.length - 1;
+        int ans = -1;
 
         while (start <= end) {
             int mid = start + ((end - start) / 2);
-            if (arr[mid] <= x) {
-                start = mid + 1;
-            } else if (arr[mid] > x) {
+            if (arr[mid] > x) {
+                ans = mid;
                 end = mid - 1;
+            } else {
+                // Now as compared to the lower bound question the 
+                // equality constraint is shifted in this part of the code / else statement
+                start = mid + 1;
             }
 
         }
 
-        
         return start;
+        // similar to returning ans;
     }
 }
