@@ -7,3 +7,4 @@ binary search questions are always more about eleminating one half of the search
 6. Reasoning behind the rotated array questions and how do they function internally , how to clear off the ambiguity which is present in the given question
 7. determining the basic template of solving the rotated array questions 
 8. Finding the pivot in O(Logn) TC 
+9. Different ways of detecting the single element inside an array 
