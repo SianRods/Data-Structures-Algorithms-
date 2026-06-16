@@ -1,9 +1,91 @@
-public class SearchRotatedSortedArrayTwo {
+public class RotatedArrayDuplicates {
     public static void main(String[] args) {
-
+        // int arr[] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1 };
+        // int target = 2;
+        int arr[] = { 1, 0, 1, 1, 1 };
+        int target = 0;
+        System.out.println(rotatedArrayDuplicates(arr, target));
     }
 
-    public static boolean rotatedArrayTwo(int arr[], int target) {
+    /**
+     * 
+     * Notice that it is important to understand what problem does having duplicates
+     * in the array pose
+     * the thing is in rotated-array-1 we were clear about which part is sorted in
+     * the array left or right
+     * and as per the sorted part we would determine whether that part of the array
+     * contains the element and
+     * accordingly adjust the bounds
+     * 
+     * But in this variation of the same question the only confusion/ambiguity arise
+     * in detecting the sorted part
+     * there is one particular case were we can't determine definitively which part
+     * is sorted and which one is not
+     * and in such situation it is always better to remove the ambiguity |
+     * non-deterministic nature and then
+     * we can apply similar logic to that of part 1 rotated sorted array
+     * 
+     * Time complextiy -> Best Case O(Logn) ; Worst Case O(n) (ambiguity removal)
+     * Space Complexity -->O(1)
+     * 
+     * 
+     * 
+     * @param arr
+     * @param target
+     * @return true/false whether the given element is present in the array or not
+     */
+    public static boolean rotatedArrayDuplicates(int arr[], int target) {
+
+        int s = 0;
+        int e = arr.length - 1;
+
+        while (s <= e) {
+            int m = s + (e - s) / 2;
+            if (arr[m] == target) {
+                return true;
+            }
+
+            if (arr[s] == arr[m] && arr[m] == arr[e]) {
+                // total ambiguity and hence we would defo have to remove it first and then
+                // continue
+                // figuring out which part of the array is actually sorted out
+                s++;
+                e--;
+            }
+
+            else if (arr[s] <= arr[m]) {
+                // left part is sorted check if the target lies within the bounds
+                if (arr[s] <= target && arr[m] > target) {
+                    e = m - 1;
+                } else {
+                    s = m + 1;
+                }
+            } else {
+                // left part is sorted check if the target lies within the bounds
+                if (arr[e] >= target && arr[m] < target) {
+                    s = m + 1;
+                } else {
+                    e = m - 1;
+                }
+            }
+
+        }
+        return false;
+    }
+
+
+
+
+
+        /**
+         * Most confusing and unecessary code implementation using the Pivot method and
+         * very heavy constraint
+         * 
+         * @param arr
+         * @param target
+         * @return
+         */
+       public static boolean rotatedArrayTwo(int arr[], int target) {
         int index = pivotIndex(arr);
 
         // check the both the halfs and return the final answer

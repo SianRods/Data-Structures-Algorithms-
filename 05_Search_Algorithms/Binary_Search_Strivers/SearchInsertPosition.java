@@ -5,6 +5,10 @@ public class SearchInsertPosition {
 
     /**
      * 
+     * Searching the insert position of an element in the array is same as
+     * finding it's lower bound in the given array (x<=value) 
+     * 
+     * 
      * @param arr
      * @param x
      * @return

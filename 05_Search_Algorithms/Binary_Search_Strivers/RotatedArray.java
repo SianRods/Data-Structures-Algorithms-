@@ -1,6 +1,6 @@
 public class RotatedArray {
     public static void main(String[] args) {
-        int arr[] = {4,5,6,7,0,1,2};
+        int arr[] = { 4, 5, 6, 7, 0, 1, 2 };
         // int arr[] = { 3, 1 };
         int target = 0;
         System.out.println(rotatedArray(arr, target));
@@ -15,6 +15,8 @@ public class RotatedArray {
      * of the array is sorted and adjust the bounds based on whether the target
      * element
      * lies within those bounds or not
+     * 
+     * Time complextiy -> Best Case O(Logn) ; Worst Case O(Logn)
      * 
      * @param arr
      * @param target
