@@ -8,3 +8,5 @@ binary search questions are always more about eleminating one half of the search
 7. determining the basic template of solving the rotated array questions 
 8. Finding the pivot in O(Logn) TC 
 9. Different ways of detecting the single element inside an array 
+10. Peak Element Concept 
+11. Mathematical Proof for why Square root of N can never be greater than n/2
