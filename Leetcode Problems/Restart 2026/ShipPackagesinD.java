@@ -4,7 +4,7 @@ public class ShipPackagesinD {
         int arr[] = { 3, 2, 2, 4, 1, 4 };
         // int days = 5;
         int days = 3;
-        System.out.println(solution(arr, days));
+        System.out.println(minWeightCapacityOfShip(arr, days));
 
     }
 
@@ -16,26 +16,32 @@ public class ShipPackagesinD {
 
     // Just think about the following question --> whats the maximum capacity of the
     // ship that is requried ??
-    public static int solution(int[] weights, int days) {
+    public static int minWeightCapacityOfShip(int[] weights, int days) {
         int sum = 0;
         int start = 1; // maximum weight of individual package on the ship
-        
+
         for (int i = 0; i < weights.length; i++) {
             sum += weights[i];
+            // Note that here the goal is to ship all the packages with weights w[i]
+            // withing d days from one port to another the things is that
+            // we can only load packages onto ship with weight<=ship so for all the packages
+            // to be delivered
+            // the min weight of the ship should be the single maximum weight of the package
             start = Math.max(start, weights[i]);
         }
-        
+
         int end = sum;
+
         int ans = 0;
 
-        // need to know whether the bounds will be (start<=end) ?? or (start<end) ??  
+        // need to know whether the bounds will be (start<=end) ?? or (start<end) ??
         while (start <= end) {
             int mid = start + (end - start) / 2;
 
             // check if the mid works -->
             // maintain a running sum and a counter to keep track of everything
             int cum = 0;
-            int count = 1; // --> include the count for the day one considered 
+            int count = 1;
             for (int j = 0; j < weights.length; j++) {
                 cum += weights[j];
                 if (cum > mid) {

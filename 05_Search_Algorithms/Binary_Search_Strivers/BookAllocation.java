@@ -83,6 +83,7 @@ public class BookAllocation {
             maxi = Math.max(maxi, books[i]);
         }
 
+        // here we have to minimize the maximum number of pages assigned to a student
         int low = maxi;
         int high = sum;
 

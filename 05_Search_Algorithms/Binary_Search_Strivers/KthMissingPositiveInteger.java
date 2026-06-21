@@ -40,10 +40,29 @@ public class KthMissingPositiveInteger {
     }
 
     // for each of the middle element in the array check how many elements are
-    // missing before
-    // arr[i]-i-1 ==> denotes number of missing elements before arr[i]
+    // missing before (Important here we are using the before reference remember
+    // that)
+    // [arr[i]-(i+1)] ==> denotes number of missing elements before arr[i]
     // and after it and based on comparison move the middle element index
     // Reducing the time to iterate throught the search space
+
+    /**
+     * The binary search finds the first index start where the number of missing
+     * elements up to arr[start] is greater than or equal to k, which means the kth
+     * missing positive number lies just before arr[start]. At that point, there are
+     * exactly start array elements smaller than the answer (since indices 0 to
+     * start - 1 contain valid elements before it). The kth missing number is
+     * therefore obtained by taking the k missing numbers and adding the start
+     * existing numbers that appear before it, giving answer = k + start. The
+     * expression k + (start - 1) + 1 is simply another way of writing the same
+     * thing: start - 1 is the last valid index before the answer, and the final +1
+     * converts that index into the actual count of elements, so it simplifies to k
+     * + start. 
+     * 
+     * @param arr
+     * @param k
+     * @return
+     */
     public static int solution2(int arr[], int k) {
         int n = arr.length;
         // check if the missing element is beyond the maximum of the given input array
@@ -61,7 +80,7 @@ public class KthMissingPositiveInteger {
             int mid = start + (end - start) / 2;
 
             // depending upon the number of missing elements till the mid shift the pointers
-            if (k > arr[mid] - mid - 1) {
+            if (k > arr[mid] - (mid + 1)) {
                 // shift the start pointers
                 start = mid + 1;
             } else {

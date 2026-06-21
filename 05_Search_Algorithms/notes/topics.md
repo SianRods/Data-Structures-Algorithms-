@@ -10,3 +10,6 @@ binary search questions are always more about eleminating one half of the search
 9. Different ways of detecting the single element inside an array 
 10. Peak Element Concept 
 11. Mathematical Proof for why Square root of N can never be greater than n/2
+12. Detailed notes on different types of patterns which are used while solving the binary search on answer questions 
+13. Maximizing the minimum and Minimizing the maximum pattern in dsa and over problem solving 
+14. Detailed pdf notes generation using calude skills and skills.sh
